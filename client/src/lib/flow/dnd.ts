@@ -1,25 +1,7 @@
 // Shared drag source for palette → canvas drops (replaces the Svelte DnD
 // context). NodeContainer parks the dragged shape id here on dragstart; the
 // canvas onDrop reads it, looks it up in the registry, and creates the node.
-import type { LibraryAssetMetadata } from '@/lib/assets/library-api';
-
-export type PaletteDragPayload =
-  | { kind: 'shape'; shapeId: string }
-  | {
-      kind: 'asset';
-      assetId: string;
-      name: string;
-      width: number;
-      height: number;
-    }
-  | {
-      kind: 'library-asset';
-      assetId: string;
-      name: string;
-      width: number;
-      height: number;
-      metadata: LibraryAssetMetadata | null;
-    };
+export type PaletteDragPayload = { kind: 'shape'; shapeId: string };
 
 export const dndState: { current: PaletteDragPayload | null } = { current: null };
 
@@ -44,13 +26,7 @@ export function readDragPayload(
   if (serialized) {
     try {
       const parsed = JSON.parse(serialized) as PaletteDragPayload;
-      if (
-        parsed?.kind === 'shape' ||
-        parsed?.kind === 'asset' ||
-        parsed?.kind === 'library-asset'
-      ) {
-        return parsed;
-      }
+      if (parsed?.kind === 'shape') return parsed;
     } catch {
       // Fall back to the in-memory payload below.
     }

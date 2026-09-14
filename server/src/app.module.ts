@@ -6,7 +6,6 @@ import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { DiagramsModule } from './diagrams/diagrams.module';
 import { AuthModule } from './auth/auth.module';
-import { AssetsModule } from './assets/assets.module';
 import { CacheModule } from '@nestjs/cache-manager';
 import { createKeyv } from '@keyv/redis';
 import { Keyv } from 'keyv';
@@ -54,7 +53,6 @@ import { LoggerModule } from 'nestjs-pino';
     PrismaModule,
     DiagramsModule,
     AuthModule,
-    AssetsModule,
   ],
   controllers: [AppController],
   providers: [AppService, { provide: APP_GUARD, useClass: ThrottlerGuard }],

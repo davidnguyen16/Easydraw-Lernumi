@@ -9,7 +9,6 @@ import type { NodeStyleData } from './types';
 import { getShape } from '@/lib/flow/nodes/registry';
 import type { NodeDataChangeOptions } from '@/lib/flow/nodes/types';
 import { FLOATING_STYLE_PANEL_RIGHT_GAP_PX, FLOATING_STYLE_PANEL_WIDTH_PX } from './layout';
-import { CUSTOM_IMAGE_NODE_TYPE } from '@/lib/flow/nodes/image/types';
 
 // Ported from StylePanel.svelte. Shapes may ship a custom editor tab via the
 // registry (e.g. EntityNode's Fields editor) — surfaced generically here.
@@ -60,14 +59,10 @@ export default function StylePanel({
   // tab (e.g. EntityNode's Fields editor). No node-type branching here.
   const shape = node.type ? getShape(node.type) : undefined;
   const customPanel = shape?.panel;
-  const supportsText = node.type !== CUSTOM_IMAGE_NODE_TYPE;
 
-  // Some node types have fewer tabs. Keep the user's last choice, but render
+  // Not every node ships a custom tab. Keep the user's last choice, but render
   // Style while that choice is not valid for the current selection.
-  const visibleTab =
-    (!customPanel && activeTab === 'panel') || (!supportsText && activeTab === 'text')
-      ? 'style'
-      : activeTab;
+  const visibleTab = !customPanel && activeTab === 'panel' ? 'style' : activeTab;
 
   // The style fields live on node.data so they survive page snapshots.
   const style = (node.data ?? {}) as NodeStyleData;
@@ -92,7 +87,7 @@ export default function StylePanel({
     >
       <div className="flex flex-shrink-0 border-b border-line" role="tablist" aria-label="Node styling tabs">
         {renderTab('style', 'Style')}
-        {supportsText && renderTab('text', 'Text')}
+        {renderTab('text', 'Text')}
         {customPanel && renderTab('panel', customPanel.label)}
         {renderTab('arrange', 'Arrange')}
       </div>

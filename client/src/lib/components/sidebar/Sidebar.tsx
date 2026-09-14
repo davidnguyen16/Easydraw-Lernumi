@@ -4,8 +4,6 @@ import { useEffect, useState } from 'react';
 import NodeContainer from './NodeContainer';
 import CollapseButton from './CollapseButton';
 import ResizeHandle from './ResizeHandle';
-import UploadsSection from './UploadsSection';
-import LibraryAssetsSection from './LibraryAssetsSection';
 import { useSidebarStore } from '@/lib/stores/sidebar.store';
 import {
   getShapesByCategory,
@@ -125,12 +123,9 @@ export default function Sidebar() {
             className="min-w-0 flex-1 appearance-none border-none bg-transparent px-2 text-[0.9rem] text-ink-soft outline-none placeholder:text-ink-muted"
             value={searchBar}
             onChange={(e) => setSearchBar(e.target.value)}
-            placeholder="Search shapes and uploads"
+            placeholder="Search shapes"
           />
         </div>
-
-        <UploadsSection searchQuery={searchQuery} />
-        <LibraryAssetsSection searchQuery={searchQuery} />
 
         {sections.map((section) => (
           <NodeContainer

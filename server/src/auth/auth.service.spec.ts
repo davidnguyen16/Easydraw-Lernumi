@@ -6,7 +6,6 @@ import { AuthService } from './auth.service';
 import { UnauthorizedException } from '@nestjs/common';
 import type { MailService } from '../mail/mail.service';
 import type { Cache } from 'cache-manager';
-import type { AssetsService } from '../assets/assets.service';
 
 // Replace the real bcrypt function with Jest mock function.
 // This prevents the test from performing real password
@@ -47,10 +46,6 @@ describe('AuthService.login', () => {
 
     const cacheManagerMock = {
         del: jest.fn(),
-    };
-
-    const assetsServiceMock = {
-        removeAllForUser: jest.fn(),
     };
 
     // Use a fixed date to keep the expected result predictable
@@ -97,7 +92,6 @@ describe('AuthService.login', () => {
             prismaMock as unknown as PrismaService,
             jwtServiceMock as unknown as JwtService,
             mailServiceMock as unknown as MailService,
-            assetsServiceMock as unknown as AssetsService,
             cacheManagerMock as unknown as Cache,
         );
     });

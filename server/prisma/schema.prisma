@@ -23,7 +23,6 @@ model User {
   passwordResetTokenHash String?
   passwordResetExpiresAt DateTime?
   diagrams               Diagram[]
-  assets                 Asset[]
 }
 
 model Diagram {
@@ -36,45 +35,4 @@ model Diagram {
   ownerId   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-}
-
-model Asset {
-  id         String   @id @default(uuid())
-  owner      User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
-  ownerId    String
-  name       String
-  storageKey String   @unique
-  mimeType   String
-  size       Int
-  width      Int
-  height     Int
-  status     String   @default("uploading")
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-
-  @@index([ownerId, status, createdAt])
-}
-
-model LibraryAsset {
-  id             String   @id @default(uuid())
-  slug           String   @unique
-  name           String
-  category       String
-  paletteGroup   String?
-  storageKey     String   @unique
-  mimeType       String
-  size           Int
-  width          Int
-  height         Int
-  version        Int      @default(1)
-  checksum       String
-  status         String   @default("active")
-  sortOrder      Int      @default(0)
-  searchAliases  String[] @default([])
-  legacyNodeType String?  @unique
-  metadata       Json?
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
-
-  @@index([category, status, sortOrder])
 }

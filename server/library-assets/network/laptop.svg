@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" width="104" height="84">
-<rect x="18" y="7" width="64" height="45" rx="5" fill="#ffffff" stroke="#2c2c2a" stroke-width="1.8" vector-effect="non-scaling-stroke"/>
-<rect x="24" y="13" width="52" height="32" rx="2" fill="#f5e8ea" stroke="#918f8a" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
-<polygon points="12,58 88,58 94,70 6,70" fill="#ffffff" stroke="#2c2c2a" stroke-width="1.8" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
-<line x1="38" y1="64" x2="62" y2="64" fill="none" stroke="#918f8a" stroke-width="1.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
-</svg>
