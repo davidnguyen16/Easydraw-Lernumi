@@ -26,6 +26,7 @@ import NetworkNode from './nodes/network/NetworkNode';
 import AnchorNode from './nodes/anchor/AnchorNode';
 import { ANCHOR_NODE_TYPE, ANCHOR_HANDLE_ID, createAnchorNode } from './nodes/anchor/anchor';
 import { NETWORK_DEFINITIONS } from './nodes/network/definitions';
+import { LEGACY_NETWORK_DEVICE_NODE_TYPES } from './nodes/network/legacy-node-types';
 import { VARIANTS } from './nodes/shape-geometry';
 import ConnectionEdge from './edges/ConnectionEdge';
 import ConnectionLinePreview from './edges/ConnectionLinePreview';
@@ -52,10 +53,12 @@ import { FLOATING_STYLE_PANEL_INSET_PX } from '@/lib/components/style-panel/layo
 import { getShape } from './nodes/registry';
 import type { NodeDataChangeOptions } from './nodes/types';
 import { MIN_ZOOM, MAX_ZOOM } from './zoom';
-import { dndState } from './dnd';
+import { clearDragPayload, readDragPayload } from './dnd';
 import DiagramPersistence from './DiagramPersistence';
 import EditorFooter from '@/lib/components/EditorFooter';
 import PresentBar from '@/lib/components/PresentBar';
+import CustomImageNode from './nodes/image/CustomImageNode';
+import { CUSTOM_IMAGE_NODE_TYPE, LIBRARY_ASSET_NODE_TYPE } from './nodes/image/types';
 
 // Every registered shape type renders through ShapeNode (it switches on the
 // geometry KIND, never on the node type); entity + network nodes have their
@@ -66,7 +69,12 @@ const nodeTypes: NodeTypes = {
   EntityNode,
   WeakEntityNode: EntityNode,
   ...Object.fromEntries(NETWORK_DEFINITIONS.map((def) => [def.id, NetworkNode])),
+  ...Object.fromEntries(
+    LEGACY_NETWORK_DEVICE_NODE_TYPES.map((type) => [type, CustomImageNode]),
+  ),
   [ANCHOR_NODE_TYPE]: AnchorNode,
+  [CUSTOM_IMAGE_NODE_TYPE]: CustomImageNode,
+  [LIBRARY_ASSET_NODE_TYPE]: CustomImageNode,
 };
 
 const edgeTypes: EdgeTypes = {
@@ -233,16 +241,69 @@ function Canvas() {
   // presets) at the drop position.
   const handleDragOver = (event: React.DragEvent) => {
     event.preventDefault();
-    event.dataTransfer.dropEffect = 'move';
+    event.dataTransfer.dropEffect = 'copy';
   };
   const handleDrop = (event: React.DragEvent) => {
     event.preventDefault();
-    const shapeId = dndState.current;
-    dndState.current = null;
-    if (!shapeId) return;
-    const shape = getShape(shapeId);
-    if (!shape) return;
+    const dragPayload = readDragPayload(event.dataTransfer);
+    clearDragPayload();
+    if (!dragPayload) return;
     const position = rf.screenToFlowPosition({ x: event.clientX, y: event.clientY });
+
+    if (dragPayload.kind === 'asset') {
+      const scale = Math.min(1, 240 / Math.max(dragPayload.width, dragPayload.height));
+      const width = Math.max(40, Math.round(dragPayload.width * scale));
+      const height = Math.max(40, Math.round(dragPayload.height * scale));
+      const imageNode: Node = {
+        id: nanoid(),
+        type: CUSTOM_IMAGE_NODE_TYPE,
+        position,
+        width,
+        height,
+        selected: true,
+        data: {
+          assetId: dragPayload.assetId,
+          name: dragPayload.name,
+          source: 'user',
+          opacity: 100,
+          borderWidth: 0,
+        },
+      };
+      const state = useFlowStore.getState();
+      state.setNodes([...state.nodes.map((node) => ({ ...node, selected: false })), imageNode]);
+      state.setEdges(state.edges.map((edge) => ({ ...edge, selected: false })));
+      return;
+    }
+
+    if (dragPayload.kind === 'library-asset') {
+      const scale = Math.min(1, 240 / Math.max(dragPayload.width, dragPayload.height));
+      const width = Math.max(40, Math.round(dragPayload.width * scale));
+      const height = Math.max(40, Math.round(dragPayload.height * scale));
+      const libraryNode: Node = {
+        id: nanoid(),
+        type: LIBRARY_ASSET_NODE_TYPE,
+        position,
+        width,
+        height,
+        selected: true,
+        data: {
+          assetId: dragPayload.assetId,
+          source: 'library',
+          name: dragPayload.name,
+          label: dragPayload.name,
+          metadata: dragPayload.metadata,
+          opacity: 100,
+          borderWidth: 0,
+        },
+      };
+      const state = useFlowStore.getState();
+      state.setNodes([...state.nodes.map((node) => ({ ...node, selected: false })), libraryNode]);
+      state.setEdges(state.edges.map((edge) => ({ ...edge, selected: false })));
+      return;
+    }
+
+    const shape = getShape(dragPayload.shapeId);
+    if (!shape) return;
 
     if (shape.edgePreset) {
       const preset = shape.edgePreset(position);

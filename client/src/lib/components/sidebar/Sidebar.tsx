@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import NodeContainer from './NodeContainer';
 import CollapseButton from './CollapseButton';
 import ResizeHandle from './ResizeHandle';
+import UploadsSection from './UploadsSection';
+import LibraryAssetsSection from './LibraryAssetsSection';
 import { useSidebarStore } from '@/lib/stores/sidebar.store';
 import {
   getShapesByCategory,
@@ -32,11 +34,6 @@ const PALETTE_CATEGORIES: readonly PaletteCategoryDefinition[] = [
     id: 'network',
     title: 'NETWORK',
     groups: [
-      { id: 'network-devices', title: 'Network Devices' },
-      { id: 'security-traffic', title: 'Security & Traffic' },
-      { id: 'end-devices', title: 'End Devices' },
-      { id: 'servers-storage', title: 'Servers & Storage' },
-      { id: 'wan-cloud', title: 'WAN & Cloud' },
       { id: 'zones-containers', title: 'Zones & Containers' },
       { id: 'connections', title: 'Connections' },
     ],
@@ -128,9 +125,12 @@ export default function Sidebar() {
             className="min-w-0 flex-1 appearance-none border-none bg-transparent px-2 text-[0.9rem] text-ink-soft outline-none placeholder:text-ink-muted"
             value={searchBar}
             onChange={(e) => setSearchBar(e.target.value)}
-            placeholder="Search shapes"
+            placeholder="Search shapes and uploads"
           />
         </div>
+
+        <UploadsSection searchQuery={searchQuery} />
+        <LibraryAssetsSection searchQuery={searchQuery} />
 
         {sections.map((section) => (
           <NodeContainer

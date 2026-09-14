@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import type { Node } from '@xyflow/react';
 import StyleTab from './StyleTab';
 import TextTab from './TextTab';
@@ -9,6 +9,7 @@ import type { NodeStyleData } from './types';
 import { getShape } from '@/lib/flow/nodes/registry';
 import type { NodeDataChangeOptions } from '@/lib/flow/nodes/types';
 import { FLOATING_STYLE_PANEL_RIGHT_GAP_PX, FLOATING_STYLE_PANEL_WIDTH_PX } from './layout';
+import { CUSTOM_IMAGE_NODE_TYPE } from '@/lib/flow/nodes/image/types';
 
 // Ported from StylePanel.svelte. Shapes may ship a custom editor tab via the
 // registry (e.g. EntityNode's Fields editor) — surfaced generically here.
@@ -59,12 +60,14 @@ export default function StylePanel({
   // tab (e.g. EntityNode's Fields editor). No node-type branching here.
   const shape = node.type ? getShape(node.type) : undefined;
   const customPanel = shape?.panel;
+  const supportsText = node.type !== CUSTOM_IMAGE_NODE_TYPE;
 
-  // If the active node's shape has no custom panel while that tab is open, fall
-  // back to Style.
-  useEffect(() => {
-    if (!customPanel && activeTab === 'panel') setActiveTab('style');
-  }, [customPanel, activeTab]);
+  // Some node types have fewer tabs. Keep the user's last choice, but render
+  // Style while that choice is not valid for the current selection.
+  const visibleTab =
+    (!customPanel && activeTab === 'panel') || (!supportsText && activeTab === 'text')
+      ? 'style'
+      : activeTab;
 
   // The style fields live on node.data so they survive page snapshots.
   const style = (node.data ?? {}) as NodeStyleData;
@@ -74,8 +77,8 @@ export default function StylePanel({
     <button
       type="button"
       role="tab"
-      aria-selected={activeTab === id}
-      className={`${TAB_CLASS} ${activeTab === id ? 'active' : ''}`}
+      aria-selected={visibleTab === id}
+      className={`${TAB_CLASS} ${visibleTab === id ? 'active' : ''}`}
       onClick={() => setActiveTab(id)}
     >
       {label}
@@ -89,22 +92,22 @@ export default function StylePanel({
     >
       <div className="flex flex-shrink-0 border-b border-line" role="tablist" aria-label="Node styling tabs">
         {renderTab('style', 'Style')}
-        {renderTab('text', 'Text')}
+        {supportsText && renderTab('text', 'Text')}
         {customPanel && renderTab('panel', customPanel.label)}
         {renderTab('arrange', 'Arrange')}
       </div>
 
       <div className="flex flex-col gap-5 overflow-y-auto p-[18px]">
-        {activeTab === 'style' ? (
+        {visibleTab === 'style' ? (
           <StyleTab style={style} onStyleChange={onStyleChange} />
-        ) : activeTab === 'text' ? (
+        ) : visibleTab === 'text' ? (
           <TextTab
             style={style}
             onStyleChange={onStyleChange}
             onFontPreview={onFontPreview}
             onFontPreviewEnd={onFontPreviewEnd}
           />
-        ) : activeTab === 'panel' && PanelComponent ? (
+        ) : visibleTab === 'panel' && PanelComponent ? (
           <PanelComponent
             node={node}
             onDataChange={(patch, options) =>

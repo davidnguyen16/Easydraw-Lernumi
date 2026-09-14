@@ -6,19 +6,21 @@ import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { GoogleStrategy } from './google.strategy';
 import { MailModule } from '../mail/mail.module';
+import { AssetsModule } from '../assets/assets.module';
 
 @Module({
   imports: [
     PrismaModule,
     PassportModule,
     MailModule,
+    AssetsModule,
     JwtModule.register({
       global: true,
       secret: process.env.JWT_SECRET,
-      signOptions: { expiresIn: '7d'}
-    })
+      signOptions: { expiresIn: '7d' },
+    }),
   ],
   providers: [AuthService, GoogleStrategy],
-  controllers: [AuthController]
+  controllers: [AuthController],
 })
 export class AuthModule {}

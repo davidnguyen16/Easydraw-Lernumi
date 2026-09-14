@@ -17,8 +17,8 @@ import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
  * which resolves to the same id because the page reads it from the live path.
  */
 const nextConfig = (phase: string): NextConfig => {
-  if (phase === PHASE_DEVELOPMENT_SERVER) return {};
-  return { output: "export" };
+  if (phase === PHASE_DEVELOPMENT_SERVER) return { agentRules: false };
+  return { output: "export", agentRules: false };
 };
 
 export default nextConfig;

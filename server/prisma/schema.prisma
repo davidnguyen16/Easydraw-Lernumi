@@ -4,8 +4,8 @@
 // Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
   moduleFormat = "cjs"
 }
 
@@ -14,15 +14,16 @@ datasource db {
 }
 
 model User {
-  id           String    @id @default(uuid())
-  email        String    @unique
-  passwordHash String?
-  googleId     String?   @unique
-  name         String?
-  createdAt    DateTime  @default(now())
+  id                     String    @id @default(uuid())
+  email                  String    @unique
+  passwordHash           String?
+  googleId               String?   @unique
+  name                   String?
+  createdAt              DateTime  @default(now())
   passwordResetTokenHash String?
   passwordResetExpiresAt DateTime?
-  diagrams     Diagram[]
+  diagrams               Diagram[]
+  assets                 Asset[]
 }
 
 model Diagram {
@@ -35,4 +36,45 @@ model Diagram {
   ownerId   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Asset {
+  id         String   @id @default(uuid())
+  owner      User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  ownerId    String
+  name       String
+  storageKey String   @unique
+  mimeType   String
+  size       Int
+  width      Int
+  height     Int
+  status     String   @default("uploading")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([ownerId, status, createdAt])
+}
+
+model LibraryAsset {
+  id             String   @id @default(uuid())
+  slug           String   @unique
+  name           String
+  category       String
+  paletteGroup   String?
+  storageKey     String   @unique
+  mimeType       String
+  size           Int
+  width          Int
+  height         Int
+  version        Int      @default(1)
+  checksum       String
+  status         String   @default("active")
+  sortOrder      Int      @default(0)
+  searchAliases  String[] @default([])
+  legacyNodeType String?  @unique
+  metadata       Json?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([category, status, sortOrder])
 }

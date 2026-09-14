@@ -1,7 +1,7 @@
 'use client';
 
 import type { DragEvent } from 'react';
-import { dndState } from '@/lib/flow/dnd';
+import { clearDragPayload, setDragPayload } from '@/lib/flow/dnd';
 import type { NodeShape, PaletteGroupId } from '@/lib/flow/nodes/registry';
 
 interface PaletteGroup {
@@ -24,8 +24,7 @@ interface Props {
 // up in the registry. Icons stay decoupled from the drop logic.
 function onDragStart(event: DragEvent, shapeId: string) {
   if (!event.dataTransfer) return;
-  dndState.current = shapeId;
-  event.dataTransfer.effectAllowed = 'move';
+  setDragPayload(event.dataTransfer, { kind: 'shape', shapeId });
 }
 
 function ShapeGrid({ items }: { items: readonly NodeShape[] }) {
@@ -43,6 +42,7 @@ function ShapeGrid({ items }: { items: readonly NodeShape[] }) {
             title={shape.label}
             draggable
             onDragStart={(event) => onDragStart(event, shape.id)}
+            onDragEnd={clearDragPayload}
           >
             <Icon {...iconProps} />
           </button>

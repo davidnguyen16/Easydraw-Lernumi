@@ -44,11 +44,29 @@ browser, which keeps the API fast and the running cost low.
 | `PATCH` | `/diagrams/:id` | Save title, status and contents |
 | `DELETE` | `/diagrams/:id` | Delete |
 
+**Assets** - private PNG, JPEG, and WebP uploads owned by the signed-in user.
+
+| Method | Route | Purpose |
+| --- | --- | --- |
+| `POST` | `/assets/uploads` | Create a size- and type-restricted S3 upload |
+| `POST` | `/assets/:id/complete` | Verify and activate an uploaded image |
+| `GET` | `/assets` | List the user's images with signed URLs |
+| `GET` | `/assets/:id/url` | Refresh one signed download URL |
+| `DELETE` | `/assets/:id` | Delete an image |
+
+**Library assets** - versioned S3 artwork shared by every signed-in user.
+
+| Method | Route | Purpose |
+| --- | --- | --- |
+| `GET` | `/library-assets` | List the active shared catalog |
+| `GET` | `/library-assets/:id/url` | Refresh a signed library URL |
+| `GET` | `/library-assets/legacy/:nodeType` | Resolve old network node types |
+
 An interactive reference is generated from the code with Swagger.
 
 ## 🗃️ Data model
 
-Two tables. A **user** holds an email, an optional password hash and an
+Four tables. A **user** holds an email, an optional password hash and an
 optional Google id - either can be absent, which is what lets the same account
 be reached by password or by Google. A **diagram** belongs to one user and
 keeps its title, type, status and contents.
@@ -57,6 +75,12 @@ The interesting decision is that a diagram's contents are stored as **a single
 JSONB column** rather than being decomposed into tables of nodes, edges and
 points. A diagram is only ever read and written whole, so normalizing it would
 buy nothing and cost a great many joins on every open. One row in, one row out.
+
+An **asset** stores ownership and metadata for a private user upload. A
+**library asset** stores the global catalog metadata, versioned object key and
+legacy-node compatibility mapping. Image bytes never enter PostgreSQL. See the
+[S3 architecture and setup guide](../docs/aws-s3-user-assets.md) for bucket
+layout, schema, import workflow, CORS and ECS task-role configuration.
 
 ## 🔐 Authentication
 

@@ -106,6 +106,7 @@ Sign in with an email address and password, or continue with Google.
 | **AWS Amplify Hosting** | Serves the static frontend over CloudFront |
 | **AWS ECS** | Runs the API container behind a load balancer at `api.easydraw.net` |
 | **AWS RDS** | Managed PostgreSQL |
+| **AWS S3** | Private user uploads and the versioned shared visual-asset catalog |
 | **Cloudflare** | DNS |
 | **GitHub Actions** | Runs the test suite on every change and deploys the API |
 

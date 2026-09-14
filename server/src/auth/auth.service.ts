@@ -14,6 +14,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import { MailService } from '../mail/mail.service';
 import { diagramListCacheKey } from '../diagrams/diagrams.cache';
+import { AssetsService } from '../assets/assets.service';
 
 @Injectable()
 export class AuthService {
@@ -23,6 +24,7 @@ export class AuthService {
     private prisma: PrismaService,
     private jwtService: JwtService,
     private mailService: MailService,
+    private assetsService: AssetsService,
     @Inject(CACHE_MANAGER) private cacheManager: Cache,
   ) {}
 
@@ -137,6 +139,8 @@ export class AuthService {
   }
 
   async deleteAccount(userId: string) {
+    await this.assetsService.removeAllForUser(userId);
+
     await this.prisma.$transaction(async (tx) => {
       const user = await tx.user.findUnique({
         where: { id: userId },
