@@ -1,20 +1,17 @@
-// Only code-native network containers use this palette icon. Device artwork is
-// loaded from the S3-backed LibraryAsset catalog instead.
-export default function NetworkPaletteIcon() {
+import NetworkGlyph from './NetworkGlyph';
+
+// Palette icon for network devices — the same glyph NetworkNode draws, in the
+// palette colour scheme. Port of NetworkPaletteIcon.svelte.
+export default function NetworkPaletteIcon({ id }: { id: string }) {
   return (
-    <svg viewBox="0 0 40 32" className="h-8 w-9" aria-hidden="true">
-      <rect
-        x="2"
-        y="3"
-        width="36"
-        height="26"
-        rx="2"
-        fill="#ffffff"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeDasharray="3 2"
-      />
-      <rect x="2" y="3" width="36" height="6" rx="2" fill="currentColor" opacity="0.12" />
-    </svg>
+    <NetworkGlyph
+      id={id}
+      mode="palette"
+      fillColor="#ffffff"
+      strokeColor="currentColor"
+      accentColor="currentColor"
+      strokeScale={0.9}
+      className="h-8 w-9 overflow-visible"
+    />
   );
 }

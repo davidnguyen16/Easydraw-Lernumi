@@ -3,7 +3,7 @@ import { NETWORK_DEFINITIONS } from './definitions';
 import NetworkNode from './NetworkNode';
 import NetworkPaletteIcon from './NetworkPaletteIcon';
 
-/** Code-native network containers. Device artwork comes from LibraryAsset/S3. */
+/** Network device and visual-boundary palette entries, generated from one catalog. */
 export const networkShapes: readonly NodeShape[] = NETWORK_DEFINITIONS.map((definition) => ({
 	id: definition.id,
 	label: definition.label,
@@ -17,10 +17,10 @@ export const networkShapes: readonly NodeShape[] = NETWORK_DEFINITIONS.map((defi
 	defaultHeight: definition.defaultHeight,
 	// Svelte Flow elevates a selected node by 1000. A deeper base layer keeps
 	// visual zones behind real devices even while their resize frame is active.
-	defaultZIndex: -2000,
+	defaultZIndex: definition.kind === 'container' ? -2000 : undefined,
 	defaultData: () => ({
 		label: definition.label,
 		accentColor: '#189589',
-		textAlign: 'left'
+		...(definition.kind === 'container' ? { textAlign: 'left' } : {})
 	})
 }));

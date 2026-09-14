@@ -1,17 +1,24 @@
 'use client';
 
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
-import { NodeResizer, useReactFlow, type NodeProps } from '@xyflow/react';
+import { Handle, NodeResizer, Position, useReactFlow, type NodeProps } from '@xyflow/react';
 import { toFiniteRotation } from '../style-utils';
 import { getNetworkDefinition } from './definitions';
+import NetworkGlyph from './NetworkGlyph';
 import { useFontPreviewStore } from '@/lib/flow/font-preview-store';
 
-export default function NetworkNode({ id, type, data, selected }: NodeProps) {
+const CONNECTION_HANDLE_CLASS =
+  'network-conn pointer-events-none opacity-0 transition-opacity duration-[120ms] ' +
+  'group-hover:pointer-events-auto group-hover:opacity-100 ' +
+  'group-[.selected]:pointer-events-auto group-[.selected]:opacity-100';
+
+export default function NetworkNode({ id, type, data, selected, isConnectable }: NodeProps) {
   const { updateNodeData } = useReactFlow();
   const d = (data ?? {}) as Record<string, unknown>;
 
   const definition = getNetworkDefinition(type);
   const isContainer = definition?.kind === 'container';
+  const handleBounds = definition?.handleBounds ?? { top: 0, right: 100, bottom: 100, left: 0 };
 
   const fillColor = (d.fillColor as string) ?? '#ffffff';
   const borderColor = (d.borderColor as string) ?? '#2c2c2a';
@@ -21,6 +28,9 @@ export default function NetworkNode({ id, type, data, selected }: NodeProps) {
   const opacityPct = Math.max(0, Math.min(100, Number(d.opacity ?? 100)));
   const visualOpacity = Number.isFinite(opacityPct) ? opacityPct / 100 : 1;
   const rotation = toFiniteRotation(d.rotation);
+  const strokeScale = Number.isFinite(borderWidth)
+    ? Math.max(0, Math.min(10 / 1.8, borderWidth / 1.8))
+    : 1;
 
   const textColor = (d.textColor as string) ?? '#2c2c2a';
   // Live font/size preview (toolbar / Text-tab hover), keyed by node id; never
@@ -132,20 +142,16 @@ export default function NetworkNode({ id, type, data, selected }: NodeProps) {
       }}
     >
       {definition ? (
-        <div
-          className="pointer-events-none absolute inset-0 overflow-hidden border-dashed transition-[box-shadow] group-[.selected]:shadow-[0_0_0_2px_#189589]"
-          style={{
-            backgroundColor: fillColor,
-            borderColor,
-            borderWidth,
-            opacity: visualOpacity,
-          }}
-        >
-          <div
-            className="absolute top-0 left-0 h-[18.75%] w-full"
-            style={{ backgroundColor: `color-mix(in srgb, ${accentColor} 11%, ${fillColor})` }}
-          />
-        </div>
+        <NetworkGlyph
+          id={definition.id}
+          mode="canvas"
+          fillColor={fillColor}
+          strokeColor={borderColor}
+          accentColor={accentColor}
+          strokeScale={strokeScale}
+          opacity={visualOpacity}
+          className="pointer-events-none absolute inset-0 h-full w-full overflow-visible transition-[filter] group-[.selected]:drop-shadow-[0_0_2px_#189589]"
+        />
       ) : null}
 
       <NodeResizer
@@ -156,6 +162,43 @@ export default function NetworkNode({ id, type, data, selected }: NodeProps) {
         handleClassName="network-resize-anchor"
         lineClassName="network-resize-line"
       />
+
+      {!isContainer ? (
+        <>
+          <Handle
+            type="source"
+            position={Position.Top}
+            isConnectable={isConnectable}
+            id="top"
+            className={CONNECTION_HANDLE_CLASS}
+            style={{ top: `${handleBounds.top}%` }}
+          />
+          <Handle
+            type="source"
+            position={Position.Right}
+            isConnectable={isConnectable}
+            id="right"
+            className={CONNECTION_HANDLE_CLASS}
+            style={{ right: `${100 - handleBounds.right}%` }}
+          />
+          <Handle
+            type="source"
+            position={Position.Bottom}
+            isConnectable={isConnectable}
+            id="bottom"
+            className={CONNECTION_HANDLE_CLASS}
+            style={{ bottom: `${100 - handleBounds.bottom}%` }}
+          />
+          <Handle
+            type="source"
+            position={Position.Left}
+            isConnectable={isConnectable}
+            id="left"
+            className={CONNECTION_HANDLE_CLASS}
+            style={{ left: `${handleBounds.left}%` }}
+          />
+        </>
+      ) : null}
 
       <div
         ref={labelBoxRef}

@@ -32,6 +32,11 @@ const PALETTE_CATEGORIES: readonly PaletteCategoryDefinition[] = [
     id: 'network',
     title: 'NETWORK',
     groups: [
+      { id: 'network-devices', title: 'Network Devices' },
+      { id: 'security-traffic', title: 'Security & Traffic' },
+      { id: 'end-devices', title: 'End Devices' },
+      { id: 'servers-storage', title: 'Servers & Storage' },
+      { id: 'wan-cloud', title: 'WAN & Cloud' },
       { id: 'zones-containers', title: 'Zones & Containers' },
       { id: 'connections', title: 'Connections' },
     ],
@@ -84,7 +89,7 @@ export default function Sidebar() {
           shapes,
           expanded: isSearching
             ? shapes.length > 0
-            : (expandedGroups[groupKey(definition.id, group.id)] ?? false),
+            : (expandedGroups[groupKey(definition.id, group.id)] ?? true),
         };
       })
       .filter((group) => (isSearching ? group.shapes.length > 0 : true));
