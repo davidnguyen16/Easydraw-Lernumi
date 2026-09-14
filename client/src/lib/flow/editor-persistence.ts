@@ -27,7 +27,7 @@ import { useEditorStore } from '@/lib/stores/editor.store';
 import { resetHistory, setApplyingHistory } from '@/lib/stores/history.store';
 import { getExporter } from '@/lib/exporters';
 import type { ExportBounds, ExportContext } from '@/lib/exporters/types';
-import { API_URL } from '@/lib/api';
+import { getDiagramBackend } from '@/lib/backend';
 
 // ── Module state (one editor instance at a time) ──
 let baselineCanvasSignature = '';
@@ -130,7 +130,7 @@ export function handleRenamePage(pageId: string, name: string) {
   useEditorDoc.getState().renamePage(pageId, name);
 }
 
-// ── Cloud save (PATCH /diagrams/:id) ──
+// ── Cloud save (via the active DiagramBackend) ──
 async function performSave(diagramId: string, generation: number, metaSignature: string) {
   persistCanvasToStore();
   saveActivePageToStorage();
@@ -138,13 +138,11 @@ async function performSave(diagramId: string, generation: number, metaSignature:
   try {
     const data = JSON.parse(exportEditorStateAsJSON());
     const meta = useEditorMeta.getState();
-    const response = await fetch(`${API_URL}/diagrams/${diagramId}`, {
-      method: 'PATCH',
-      credentials: 'include',
-      headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify({ data, title: meta.fileName, status: meta.status }),
+    await getDiagramBackend().saveDiagram(diagramId, {
+      data,
+      title: meta.fileName,
+      status: meta.status,
     });
-    if (!response.ok) throw new Error(`Save failed with status ${response.status}`);
 
     // A newer edit/save may have started while this request was in flight — only
     // the newest request marks the document as saved.

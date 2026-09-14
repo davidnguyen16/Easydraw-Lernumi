@@ -1,0 +1,9 @@
+/*
+ * Lernumi build entry stylesheet.
+ *
+ * Tailwind v4 auto-detects class names starting from the Vite root (`lernumi/`),
+ * which would drop every utility used only by the shared editor in `src/lib`.
+ * `@source` widens the scan; the rest is the same globals.css easydraw.net uses.
+ */
+@import '../../src/app/globals.css';
+@source '../../src';
