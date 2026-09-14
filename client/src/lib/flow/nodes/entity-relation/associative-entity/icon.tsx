@@ -8,14 +8,14 @@ export default function Icon() {
     		width="52"
     		height="32"
     		fill="white"
-    		stroke="#A6192E"
+    		stroke="#189589"
     		strokeWidth="1.5"
     		strokeLinejoin="round"
     	/>
     	<polygon
     		points="30,14 56,30 30,46 4,30"
     		fill="none"
-    		stroke="#A6192E"
+    		stroke="#189589"
     		strokeWidth="1.5"
     		strokeLinejoin="round"
     	/>

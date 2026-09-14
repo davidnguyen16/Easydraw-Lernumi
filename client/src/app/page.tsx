@@ -18,7 +18,7 @@ export default function Home() {
   // content shows through the header's backdrop blur, everything below sits on
   // cream.
   return (
-    <div className="flex min-h-screen flex-col bg-[#faf8f3]">
+    <div className="flex min-h-screen flex-col bg-page">
       <LandingNav />
       <main className="flex-1">
         <Hero />

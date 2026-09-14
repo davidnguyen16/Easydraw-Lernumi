@@ -83,7 +83,7 @@ export default function SettingsPage() {
 
           <div className="flex items-center gap-4">
             <div
-              className="flex size-16 flex-shrink-0 items-center justify-center rounded-full bg-mq-maroon text-lg font-semibold text-white"
+              className="flex size-16 flex-shrink-0 items-center justify-center rounded-full bg-primary-deep text-lg font-semibold text-white"
               aria-hidden="true"
             >
               {initials}

@@ -35,7 +35,7 @@ export default function PrivacyPage() {
       lastUpdated={lastUpdated}
       sections={sections}
     >
-      <div className="mt-8 rounded-xl border border-mq-red/15 bg-mq-pink px-5 py-4 sm:ml-10">
+      <div className="mt-8 rounded-xl border border-primary/15 bg-primary-tint px-5 py-4 sm:ml-10">
         <p className="text-sm leading-6 text-ink-soft">
           <strong className="font-semibold text-ink">The short version:</strong> we use account
           information and your diagrams to run EasyDraw. We do not sell personal information and we do

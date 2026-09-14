@@ -37,7 +37,7 @@ function ShapeGrid({ items }: { items: readonly NodeShape[] }) {
           <button
             key={shape.id}
             type="button"
-            className="flex aspect-square cursor-grab items-center justify-center rounded-lg border border-[#e8e2d3] bg-white p-0 text-mq-red transition-[border-color,box-shadow] duration-150 hover:border-mq-red hover:shadow-[0_1px_4px_rgba(166,25,46,0.15)] active:cursor-grabbing"
+            className="flex aspect-square cursor-grab items-center justify-center rounded-lg border border-[#dee6e8] bg-white p-0 text-primary transition-[border-color,box-shadow] duration-150 hover:border-primary hover:shadow-[0_1px_4px_rgba(24,149,137,0.15)] active:cursor-grabbing"
             aria-label={shape.label}
             title={shape.label}
             draggable
@@ -57,7 +57,7 @@ export default function NodeContainer({ heading, shapes, groups = [], expanded, 
     <section className="flex flex-col gap-[0.6rem]">
       <button
         type="button"
-        className="group flex w-full cursor-pointer items-center gap-2 border-none bg-transparent px-0 py-[0.2rem] text-left text-mq-maroon focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mq-red"
+        className="group flex w-full cursor-pointer items-center gap-2 border-none bg-transparent px-0 py-[0.2rem] text-left text-primary-deep focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         aria-expanded={expanded}
         onClick={onToggle}
       >
@@ -83,7 +83,7 @@ export default function NodeContainer({ heading, shapes, groups = [], expanded, 
               <section key={group.id} className="flex min-w-0 flex-col gap-2">
                 <button
                   type="button"
-                  className="group flex w-full min-w-0 cursor-pointer items-center gap-1.5 border-none bg-transparent py-[0.15rem] pr-0 pl-2 text-left text-ink-soft focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mq-red"
+                  className="group flex w-full min-w-0 cursor-pointer items-center gap-1.5 border-none bg-transparent py-[0.15rem] pr-0 pl-2 text-left text-ink-soft focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                   aria-expanded={group.expanded}
                   onClick={() => onGroupToggle(group.id)}
                 >

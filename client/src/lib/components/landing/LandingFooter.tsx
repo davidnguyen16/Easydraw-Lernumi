@@ -5,7 +5,7 @@ export default function LandingFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-line-soft bg-[#faf8f3]">
+    <footer className="border-t border-line-soft bg-page">
       <div
         className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-10
           sm:flex-row sm:px-6"

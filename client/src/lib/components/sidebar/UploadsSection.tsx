@@ -89,7 +89,7 @@ export default function UploadsSection({ searchQuery }: Props) {
       <div className="flex items-center gap-2">
         <button
           type="button"
-          className="group flex min-w-0 flex-1 cursor-pointer items-center gap-2 border-none bg-transparent px-0 py-[0.2rem] text-left text-mq-maroon"
+          className="group flex min-w-0 flex-1 cursor-pointer items-center gap-2 border-none bg-transparent px-0 py-[0.2rem] text-left text-primary-deep"
           aria-expanded={isExpanded}
           onClick={() => setExpanded((value) => !value)}
         >
@@ -120,7 +120,7 @@ export default function UploadsSection({ searchQuery }: Props) {
         />
         <button
           type="button"
-          className="shrink-0 rounded-md bg-mq-red px-2 py-1 text-[0.68rem] font-semibold text-white hover:bg-mq-maroon disabled:cursor-wait disabled:opacity-60"
+          className="shrink-0 rounded-md bg-primary px-2 py-1 text-[0.68rem] font-semibold text-white hover:bg-primary-deep disabled:cursor-wait disabled:opacity-60"
           disabled={uploading !== null}
           onClick={() => inputRef.current?.click()}
         >
@@ -136,13 +136,13 @@ export default function UploadsSection({ searchQuery }: Props) {
                 <span className="truncate">{uploading}</span>
                 <span>{progress}%</span>
               </div>
-              <div className="h-1.5 overflow-hidden rounded-full bg-[#e8e5de]">
-                <div className="h-full bg-mq-red transition-[width]" style={{ width: `${progress}%` }} />
+              <div className="h-1.5 overflow-hidden rounded-full bg-[#dee6e8]">
+                <div className="h-full bg-primary transition-[width]" style={{ width: `${progress}%` }} />
               </div>
             </div>
           ) : null}
 
-          {error ? <p className="mb-2 text-[0.7rem] leading-snug text-mq-red">{error}</p> : null}
+          {error ? <p className="mb-2 text-[0.7rem] leading-snug text-danger">{error}</p> : null}
 
           {loading ? (
             <p className="text-[0.75rem] text-ink-muted">Loading uploads…</p>
@@ -155,7 +155,7 @@ export default function UploadsSection({ searchQuery }: Props) {
               {visibleAssets.map((asset) => (
                 <div key={asset.id} className="group relative min-w-0">
                   <div
-                    className="flex aspect-square cursor-grab items-center justify-center overflow-hidden rounded-lg border border-[#e8e2d3] bg-white p-1 hover:border-mq-red active:cursor-grabbing"
+                    className="flex aspect-square cursor-grab items-center justify-center overflow-hidden rounded-lg border border-[#dee6e8] bg-white p-1 hover:border-primary active:cursor-grabbing"
                     draggable
                     onDragStart={(event) => onAssetDragStart(event, asset)}
                     onDragEnd={clearDragPayload}
@@ -172,7 +172,7 @@ export default function UploadsSection({ searchQuery }: Props) {
                   </div>
                   <button
                     type="button"
-                    className="absolute -top-1 -right-1 hidden size-5 items-center justify-center rounded-full border border-line bg-white text-xs leading-none text-mq-red shadow-sm group-hover:flex hover:bg-[#fff1f2]"
+                    className="absolute -top-1 -right-1 hidden size-5 items-center justify-center rounded-full border border-line bg-white text-xs leading-none text-primary shadow-sm group-hover:flex hover:bg-[#fff1f2]"
                     aria-label={`Delete ${asset.name}`}
                     title={`Delete ${asset.name}`}
                     onClick={() => void remove(asset)}

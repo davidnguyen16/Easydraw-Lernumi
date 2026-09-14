@@ -127,7 +127,7 @@ export default function CustomImageNode({ id, type, data, selected, isConnectabl
       }}
     >
       <div
-        className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden group-[.selected]:shadow-[0_0_0_2px_#a6192e]"
+        className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden group-[.selected]:shadow-[0_0_0_2px_#189589]"
         style={imageStyle}
       >
         {source && !failed ? (
@@ -141,7 +141,7 @@ export default function CustomImageNode({ id, type, data, selected, isConnectabl
             onError={() => setFailed(true)}
           />
         ) : failed ? (
-          <span className="px-2 text-center text-[11px] text-mq-red">Image unavailable</span>
+          <span className="px-2 text-center text-[11px] text-primary">Image unavailable</span>
         ) : (
           <span className="text-[11px] text-ink-muted">Loading…</span>
         )}

@@ -61,8 +61,8 @@ export default function ResizeHandle() {
 
   return (
     <div
-      className={`absolute top-0 z-10 h-full w-1.5 cursor-col-resize bg-transparent transition-colors duration-150 hover:bg-[rgba(166,25,46,0.35)] focus-visible:bg-[rgba(166,25,46,0.5)] focus-visible:shadow-[0_0_0_2px_rgba(166,25,46,0.4)] focus-visible:outline-none ${
-        isDragging ? 'bg-[rgba(166,25,46,0.35)]' : ''
+      className={`absolute top-0 z-10 h-full w-1.5 cursor-col-resize bg-transparent transition-colors duration-150 hover:bg-[rgba(24,149,137,0.35)] focus-visible:bg-[rgba(24,149,137,0.5)] focus-visible:shadow-[0_0_0_2px_rgba(24,149,137,0.4)] focus-visible:outline-none ${
+        isDragging ? 'bg-[rgba(24,149,137,0.35)]' : ''
       }`}
       style={{ right: -SIDEBAR_RESIZE_HANDLE_OVERHANG_PX }}
       role="separator"

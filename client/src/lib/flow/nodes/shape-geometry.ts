@@ -27,7 +27,7 @@ import { ADDITIONAL_UML_GEOMETRY, ADDITIONAL_UML_VARIANTS } from './uml/addition
  *
  *   boxRadius:    CSS border-radius for 'boxed' shapes.
  *
- * Default (unselected) stroke and selected (#A6192E) stroke are applied
+ * Default (unselected) stroke and selected (#189589) stroke are applied
  * uniformly across both kinds in ShapeNode's template.
  */
 type ShapeKind = 'boxed' | 'svg' | 'text-only';

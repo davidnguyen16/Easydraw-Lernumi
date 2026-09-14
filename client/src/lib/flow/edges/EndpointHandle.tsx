@@ -15,7 +15,7 @@ interface Props {
   onPointerDown?: (event: PointerEvent) => void;
 }
 
-const COLOR = '#a6192e';
+const COLOR = '#189589';
 const R = 5; // visible dot radius
 
 export default function EndpointHandle({ x, y, floating = false, hit = 10, onPointerDown }: Props) {

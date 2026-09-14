@@ -11,7 +11,7 @@ export default function CollapseButton() {
   return (
     <button
       type="button"
-      className={`absolute top-3 z-20 flex size-6 cursor-pointer items-center justify-center rounded-full border border-line bg-white text-base leading-none text-ink-soft shadow-[0_1px_3px_rgba(0,0,0,0.12)] transition-colors duration-150 hover:bg-[#edebe5] ${
+      className={`absolute top-3 z-20 flex size-6 cursor-pointer items-center justify-center rounded-full border border-line bg-white text-base leading-none text-ink-soft shadow-[0_1px_3px_rgba(0,0,0,0.12)] transition-colors duration-150 hover:bg-[#e4ebec] ${
         isCollapsed ? '-right-8' : 'right-2'
       }`}
       aria-label={isCollapsed ? 'Open sidebar' : 'Close sidebar'}

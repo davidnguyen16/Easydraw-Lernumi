@@ -40,9 +40,9 @@ export default function DiagramTypes() {
               <div
                 key={t.title}
                 className="rounded-xl border border-line-soft bg-white p-6 transition-colors
-                  hover:border-mq-red/40"
+                  hover:border-primary/40"
               >
-                <div className="mb-4 flex size-11 items-center justify-center rounded-lg bg-mq-red/10 text-mq-red">
+                <div className="mb-4 flex size-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <Icon size={20} />
                 </div>
                 <h3 className="font-semibold text-ink">{t.title}</h3>

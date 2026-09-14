@@ -2,14 +2,14 @@
 export default function Icon() {
   return (
     <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" className="size-[80%]">
-    	<rect x="4" y="4" width="52" height="52" rx="3" fill="white" stroke="#A6192E" strokeWidth="1.5" />
-    	<rect x="4" y="4" width="52" height="12" rx="3" fill="white" stroke="#A6192E" strokeWidth="1.5" />
+    	<rect x="4" y="4" width="52" height="52" rx="3" fill="white" stroke="#189589" strokeWidth="1.5" />
+    	<rect x="4" y="4" width="52" height="12" rx="3" fill="white" stroke="#189589" strokeWidth="1.5" />
     	<text
     		x="30"
     		y="13"
     		textAnchor="middle"
     		font-size="7.5"
-    		fill="#A6192E"
+    		fill="#189589"
     		font-weight="700"
     		font-family="system-ui, sans-serif">Entity</text
     	>

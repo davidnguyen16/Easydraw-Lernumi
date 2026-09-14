@@ -31,8 +31,8 @@ import type {
 } from './types';
 
 // ─── Visual constants ───────────────────────────────────────────────
-const COLOR_DEFAULT = '#B4B2A9';
-const COLOR_ACTIVE = '#5F5E5A';
+const COLOR_DEFAULT = '#A5B0B3';
+const COLOR_ACTIVE = '#4D5B61';
 const WIDTH_DEFAULT = 1.5;
 const CORNER_RADIUS = 8;
 const HIT_WIDTH = 20;

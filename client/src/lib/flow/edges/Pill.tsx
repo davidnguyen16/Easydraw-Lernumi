@@ -30,7 +30,7 @@ export default function Pill({ kind, x, y, axis, onPointerDown }: Props) {
     '[stroke-width:1] [pointer-events:bounding-box] [transform-box:fill-box]',
     kind === 'ghost'
       ? 'fill-white stroke-[#9b9991] [stroke-opacity:0.55] hover:[stroke-opacity:1]'
-      : 'cursor-move fill-mq-maroon stroke-mq-maroon',
+      : 'cursor-move fill-primary-deep stroke-primary-deep',
     kind === 'ghost' && (isHorizontal ? 'cursor-ns-resize' : 'cursor-ew-resize'),
     pressing && '[filter:drop-shadow(0_1px_3px_rgba(0,0,0,0.22))]',
     pressing && kind === 'ghost' && '[stroke-opacity:1] [stroke-width:1.5]',

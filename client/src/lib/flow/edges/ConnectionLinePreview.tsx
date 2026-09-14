@@ -97,7 +97,7 @@ export default function ConnectionLinePreview() {
       d={pathD}
       fill="none"
       className="react-flow__connection-path"
-      style={{ stroke: '#A6192E', strokeWidth: '1.5px' }}
+      style={{ stroke: '#189589', strokeWidth: '1.5px' }}
       strokeLinecap="round"
       strokeLinejoin="round"
     />

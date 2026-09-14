@@ -37,7 +37,7 @@ export default function EntityNode({ id, data, selected }: NodeProps) {
   // entity's built-in defaults. fillColor is scoped to the header only.
   const opacityPct = Math.max(0, Math.min(100, Number(entity.opacity ?? 100)));
   const visualOpacity = Number.isFinite(opacityPct) ? opacityPct / 100 : 1;
-  const borderColor = entity.borderColor ?? '#373a36';
+  const borderColor = entity.borderColor ?? '#253035';
   const borderWidth = entity.borderWidth ?? 1;
   const cardRadius = entity.rounded === false ? '0' : '4px';
   const rotation = toFiniteRotation(entity.rotation);
@@ -166,9 +166,9 @@ export default function EntityNode({ id, data, selected }: NodeProps) {
     >
       <div
         className="entity-card relative flex h-full w-full flex-col overflow-hidden rounded-[4px] border
-          border-[#373a36] bg-white font-sans shadow-[0_2px_6px_rgba(0,0,0,0.06)] transition-shadow
-          duration-150 group-hover:shadow-[0_4px_12px_rgba(166,25,46,0.15)]
-          group-[.active]:shadow-[0_4px_12px_rgba(166,25,46,0.15)]"
+          border-[#253035] bg-white font-sans shadow-[0_2px_6px_rgba(0,0,0,0.06)] transition-shadow
+          duration-150 group-hover:shadow-[0_4px_12px_rgba(24,149,137,0.15)]
+          group-[.active]:shadow-[0_4px_12px_rgba(24,149,137,0.15)]"
         style={cardStyle}
       >
         {entity.weak ? (
@@ -181,7 +181,7 @@ export default function EntityNode({ id, data, selected }: NodeProps) {
 
         {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
         <header
-          className="border-b border-[#373a36] px-3 py-2 text-center select-none"
+          className="border-b border-[#253035] px-3 py-2 text-center select-none"
           style={headerStyle}
           onDoubleClick={(e) => {
             e.stopPropagation();
@@ -213,7 +213,7 @@ export default function EntityNode({ id, data, selected }: NodeProps) {
               <li
                 key={index}
                 className="flex items-center border-t-[0.5px] border-line px-3 py-2
-                  first:border-t first:border-[#373a36]"
+                  first:border-t first:border-[#253035]"
                 onDoubleClick={(e) => {
                   e.stopPropagation();
                   startEdit(editKey);

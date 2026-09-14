@@ -16,7 +16,7 @@ export default function NetworkNode({ id, type, data, selected }: NodeProps) {
   const fillColor = (d.fillColor as string) ?? '#ffffff';
   const borderColor = (d.borderColor as string) ?? '#2c2c2a';
   const borderWidth = Number(d.borderWidth ?? 1.5);
-  const accentColor = (d.accentColor as string) ?? '#a6192e';
+  const accentColor = (d.accentColor as string) ?? '#189589';
   const shadow = (d.shadow as boolean) ?? false;
   const opacityPct = Math.max(0, Math.min(100, Number(d.opacity ?? 100)));
   const visualOpacity = Number.isFinite(opacityPct) ? opacityPct / 100 : 1;
@@ -133,7 +133,7 @@ export default function NetworkNode({ id, type, data, selected }: NodeProps) {
     >
       {definition ? (
         <div
-          className="pointer-events-none absolute inset-0 overflow-hidden border-dashed transition-[box-shadow] group-[.selected]:shadow-[0_0_0_2px_#a6192e]"
+          className="pointer-events-none absolute inset-0 overflow-hidden border-dashed transition-[box-shadow] group-[.selected]:shadow-[0_0_0_2px_#189589]"
           style={{
             backgroundColor: fillColor,
             borderColor,

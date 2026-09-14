@@ -71,14 +71,14 @@ export default function LandingNav() {
             <>
               <Link
                 href="/dashboard"
-                className="flex h-9 items-center rounded-lg bg-mq-red px-3.5 text-sm font-medium text-white transition-colors hover:bg-mq-red-hover"
+                className="flex h-9 items-center rounded-lg bg-primary px-3.5 text-sm font-medium text-white transition-colors hover:bg-primary-hover"
               >
                 Open dashboard
               </Link>
               <div className="relative">
                 <button
                   type="button"
-                  className="flex size-9 items-center justify-center rounded-full bg-mq-red/10 text-xs font-semibold text-mq-red transition-colors hover:bg-mq-red/20"
+                  className="flex size-9 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
                   aria-haspopup="menu"
                   aria-expanded={userMenuOpen}
                   onClick={() => setUserMenuOpen((v) => !v)}
@@ -109,7 +109,7 @@ export default function LandingNav() {
                       <button
                         type="button"
                         role="menuitem"
-                        className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm text-[#b42318] hover:bg-surface-hover"
+                        className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm text-danger hover:bg-surface-hover"
                         onClick={handleLogout}
                       >
                         <LogOut size={16} /> Log out
@@ -129,7 +129,7 @@ export default function LandingNav() {
               </Link>
               <Link
                 href="/register"
-                className="flex h-9 items-center rounded-lg bg-mq-red px-3.5 text-sm font-medium text-white transition-colors hover:bg-mq-red-hover"
+                className="flex h-9 items-center rounded-lg bg-primary px-3.5 text-sm font-medium text-white transition-colors hover:bg-primary-hover"
               >
                 Get started free
               </Link>

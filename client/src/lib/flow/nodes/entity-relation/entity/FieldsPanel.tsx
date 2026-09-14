@@ -178,10 +178,10 @@ export default function FieldsPanel({ node, onDataChange }: NodePanelProps) {
           currentKey
             ? KEY_BUTTON_CLASS[currentKey]
             : isOpen
-              ? 'border-mq-red bg-white text-ink-muted'
+              ? 'border-primary bg-white text-ink-muted'
               : which === 'optional'
-                ? 'border-dashed border-[#c4c1b8] bg-white text-ink-muted hover:border-mq-red'
-                : 'border-line bg-white text-ink-muted hover:border-[#c4c1b8]'
+                ? 'border-dashed border-[#b6c0c2] bg-white text-ink-muted hover:border-primary'
+                : 'border-line bg-white text-ink-muted hover:border-[#b6c0c2]'
         }`}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
@@ -248,7 +248,7 @@ export default function FieldsPanel({ node, onDataChange }: NodePanelProps) {
                       strokeWidth="2.4"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="flex-shrink-0 text-mq-maroon"
+                      className="flex-shrink-0 text-primary-deep"
                     >
                       <polyline points="5 12 10 17 19 8" />
                     </svg>
@@ -257,7 +257,7 @@ export default function FieldsPanel({ node, onDataChange }: NodePanelProps) {
               </li>
             );
           })}
-          <li className="mx-1 my-1 h-px list-none bg-[#e8e5de]" role="separator" />
+          <li className="mx-1 my-1 h-px list-none bg-[#dee6e8]" role="separator" />
           <li>
             <button
               type="button"
@@ -278,7 +278,7 @@ export default function FieldsPanel({ node, onDataChange }: NodePanelProps) {
   return (
     <div className="flex flex-col gap-2.5" ref={rootRef}>
       <div className="flex items-center justify-between">
-        <h3 className="m-0 text-[0.7rem] font-bold tracking-[0.08em] text-mq-maroon">FIELDS</h3>
+        <h3 className="m-0 text-[0.7rem] font-bold tracking-[0.08em] text-primary-deep">FIELDS</h3>
         <span className="text-[0.78rem] tabular-nums text-ink-muted">{fields.length}</span>
       </div>
 
@@ -291,7 +291,7 @@ export default function FieldsPanel({ node, onDataChange }: NodePanelProps) {
             key={i}
             className={`flex flex-col gap-2 rounded-lg border bg-white p-2.5 transition-[border-color,box-shadow] duration-[120ms] ${
               keyOpen || typeOpen
-                ? 'border-mq-red shadow-[0_0_0_1px_rgba(166,25,46,0.25)]'
+                ? 'border-primary shadow-[0_0_0_1px_rgba(24,149,137,0.25)]'
                 : 'border-line'
             }`}
           >
@@ -301,7 +301,7 @@ export default function FieldsPanel({ node, onDataChange }: NodePanelProps) {
 
               <input
                 type="text"
-                className="min-w-0 flex-1 rounded-md border border-line bg-white px-2.5 py-2 text-[0.9rem] text-ink-soft outline-none focus:border-mq-red"
+                className="min-w-0 flex-1 rounded-md border border-line bg-white px-2.5 py-2 text-[0.9rem] text-ink-soft outline-none focus:border-primary"
                 value={field.name}
                 placeholder="field"
                 onInput={(e) => patchField(i, { name: e.currentTarget.value })}
@@ -310,7 +310,7 @@ export default function FieldsPanel({ node, onDataChange }: NodePanelProps) {
 
               <button
                 type="button"
-                className="flex h-8 w-8 flex-shrink-0 cursor-pointer items-center justify-center rounded-md border-none bg-transparent text-ink-muted transition-colors duration-[120ms] hover:bg-[#fdf2f1] hover:text-[#b42318]"
+                className="flex h-8 w-8 flex-shrink-0 cursor-pointer items-center justify-center rounded-md border-none bg-transparent text-ink-muted transition-colors duration-[120ms] hover:bg-danger-tint hover:text-danger"
                 aria-label="Remove field"
                 onClick={() => removeField(i)}
               >
@@ -338,7 +338,7 @@ export default function FieldsPanel({ node, onDataChange }: NodePanelProps) {
                 <button
                   type="button"
                   className={`flex h-8 w-full cursor-pointer items-center justify-between gap-1.5 rounded-md border bg-white px-2.5 text-[0.78rem] font-semibold transition-colors duration-[120ms] ${
-                    typeOpen ? 'border-mq-red text-mq-maroon' : 'border-line text-ink-soft'
+                    typeOpen ? 'border-primary text-primary-deep' : 'border-line text-ink-soft'
                   }`}
                   aria-haspopup="listbox"
                   aria-expanded={typeOpen}
@@ -363,8 +363,8 @@ export default function FieldsPanel({ node, onDataChange }: NodePanelProps) {
                             type="button"
                             role="option"
                             aria-selected={isSelected}
-                            className={`flex w-full cursor-pointer items-center justify-between gap-1.5 rounded border-none bg-transparent px-2.5 py-2 text-left text-[0.78rem] font-semibold transition-colors duration-100 hover:bg-mq-pink hover:text-mq-maroon ${
-                              isSelected ? 'text-mq-maroon' : 'text-ink-soft'
+                            className={`flex w-full cursor-pointer items-center justify-between gap-1.5 rounded border-none bg-transparent px-2.5 py-2 text-left text-[0.78rem] font-semibold transition-colors duration-100 hover:bg-primary-tint hover:text-primary-deep ${
+                              isSelected ? 'text-primary-deep' : 'text-ink-soft'
                             }`}
                             onClick={() => selectType(i, option)}
                           >
@@ -397,7 +397,7 @@ export default function FieldsPanel({ node, onDataChange }: NodePanelProps) {
 
       <button
         type="button"
-        className="w-full cursor-pointer rounded-lg border border-dashed border-[#c4c1b8] bg-transparent p-2.5 text-[0.85rem] text-ink-muted transition-colors duration-[120ms] hover:border-mq-maroon hover:bg-mq-pink hover:text-mq-maroon"
+        className="w-full cursor-pointer rounded-lg border border-dashed border-[#b6c0c2] bg-transparent p-2.5 text-[0.85rem] text-ink-muted transition-colors duration-[120ms] hover:border-primary-deep hover:bg-primary-tint hover:text-primary-deep"
         onClick={addField}
       >
         + Add field
@@ -414,7 +414,7 @@ export default function FieldsPanel({ node, onDataChange }: NodePanelProps) {
             checked={showDataTypes}
             onChange={(e) => setShowDataTypes(e.currentTarget.checked)}
           />
-          <span className="absolute inset-0 cursor-pointer rounded-full bg-[#d0cabd] transition-colors duration-150 before:absolute before:top-0.5 before:left-0.5 before:h-4 before:w-4 before:rounded-full before:bg-white before:shadow-[0_1px_2px_rgba(0,0,0,0.15)] before:transition-transform before:duration-150 before:content-[''] peer-checked:bg-mq-red peer-checked:before:translate-x-4" />
+          <span className="absolute inset-0 cursor-pointer rounded-full bg-[#d0cabd] transition-colors duration-150 before:absolute before:top-0.5 before:left-0.5 before:h-4 before:w-4 before:rounded-full before:bg-white before:shadow-[0_1px_2px_rgba(0,0,0,0.15)] before:transition-transform before:duration-150 before:content-[''] peer-checked:bg-primary peer-checked:before:translate-x-4" />
         </label>
       </div>
     </div>

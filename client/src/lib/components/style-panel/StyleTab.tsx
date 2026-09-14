@@ -24,7 +24,7 @@ interface Props {
 // FILL palette pages (draw.io-style ◀ ▶ pager). Page 0 is the brand default
 // set the panel opens on — white leads because it's the actual default fill.
 const FILL_SWATCH_PAGES: string[][] = [
-  ['#FFFFFF', '#76232F', '#A6192E', '#6B4DBA', '#0E7E63', '#9C6B1A'], // defaults
+  ['#FFFFFF', '#189589', '#126862', '#763ADF', '#E9820C', '#0D91D3'], // defaults (ecosystem brand hues)
   ['#E53935', '#FF6347', '#FF7F0E', '#FB8C00', '#FFC107', '#FFD700'], // reds & oranges
   ['#FFEB3B', '#CDDC39', '#8BC34A', '#4CAF50', '#2E7D32', '#009688'], // yellows & greens
   ['#00BCD4', '#4FC3F7', '#2196F3', '#1F77B4', '#1A237E', '#3F51B5'], // cyans & blues
@@ -36,7 +36,7 @@ const LAST_FILL_PAGE = FILL_SWATCH_PAGES.length - 1;
 const FILL_ARROW = [
   'flex w-7 flex-shrink-0 cursor-pointer items-center justify-center rounded border-none',
   'bg-transparent text-ink-muted transition-colors duration-[120ms]',
-  'hover:bg-surface-hover hover:text-mq-maroon',
+  'hover:bg-surface-hover hover:text-primary-deep',
   'disabled:cursor-default disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-ink-muted',
 ].join(' ');
 
@@ -137,7 +137,7 @@ export default function StyleTab({ style, onStyleChange }: Props) {
                 key={color}
                 type="button"
                 className={`${FILL_SWATCH} ${color === '#FFFFFF' ? 'border-line' : ''} ${
-                  fillColor.toUpperCase() === color ? 'shadow-[0_0_0_2px_#76232f]' : ''
+                  fillColor.toUpperCase() === color ? 'shadow-[0_0_0_2px_#126862]' : ''
                 }`}
                 style={{ backgroundColor: color }}
                 aria-label={`Fill ${color}`}
@@ -202,7 +202,7 @@ export default function StyleTab({ style, onStyleChange }: Props) {
             <label
               className="inline-flex h-[30px] min-w-[58px] items-center rounded-md border border-line
                 bg-white px-2 text-[0.78rem] font-medium tabular-nums text-ink-soft
-                focus-within:border-mq-red"
+                focus-within:border-primary"
             >
               <input
                 className="w-8 min-w-0 border-none bg-transparent p-0 text-right text-[0.78rem]
@@ -232,19 +232,19 @@ export default function StyleTab({ style, onStyleChange }: Props) {
             value={opacity}
             aria-label="Opacity"
             aria-valuetext={`${opacity}%`}
-            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-[#e8e5de]
-              accent-mq-red outline-none
+            className="h-2 w-full cursor-pointer appearance-none rounded-full bg-[#dee6e8]
+              accent-primary outline-none
               [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:w-4
               [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-2
-              [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:bg-mq-red
+              [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:bg-primary
               [&::-moz-range-thumb]:shadow-[0_1px_3px_rgba(0,0,0,0.25)]
               [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4
               [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full
               [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white
-              [&::-webkit-slider-thumb]:bg-mq-red
+              [&::-webkit-slider-thumb]:bg-primary
               [&::-webkit-slider-thumb]:shadow-[0_1px_3px_rgba(0,0,0,0.25)]"
             style={{
-              background: `linear-gradient(to right, #a6192e 0%, #a6192e ${opacity}%, #e8e5de ${opacity}%, #e8e5de 100%)`,
+              background: `linear-gradient(to right, #189589 0%, #189589 ${opacity}%, #dee6e8 ${opacity}%, #dee6e8 100%)`,
             }}
             onChange={(e) => {
               setOpacityDraft(null);

@@ -203,7 +203,7 @@ export default function ShapeNode({ id, type, data, selected, isConnectable }: N
       {/* Paint the shape fill FIRST so handles + resize anchors render on top. */}
       {variant.kind === 'boxed' ? (
         <div
-          className="pointer-events-none absolute inset-0 h-full w-full overflow-visible group-[.selected]:shadow-[0_0_0_2px_#a6192e]"
+          className="pointer-events-none absolute inset-0 h-full w-full overflow-visible group-[.selected]:shadow-[0_0_0_2px_#189589]"
           style={{
             backgroundColor: fillColor,
             border: `${strokeWidth}px solid ${strokeColor}`,
@@ -213,7 +213,7 @@ export default function ShapeNode({ id, type, data, selected, isConnectable }: N
         />
       ) : variant.kind === 'svg' ? (
         <svg
-          className="pointer-events-none absolute inset-0 h-full w-full overflow-visible group-[.selected]:shadow-[0_0_0_2px_#a6192e]"
+          className="pointer-events-none absolute inset-0 h-full w-full overflow-visible group-[.selected]:shadow-[0_0_0_2px_#189589]"
           style={{ opacity: visualOpacity }}
           preserveAspectRatio="none"
           viewBox="0 0 100 100"

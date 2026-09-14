@@ -35,10 +35,10 @@ interface Props {
 
 const TAB_CLASS =
   'relative flex-1 cursor-pointer border-none bg-transparent py-3.5 text-[0.88rem] ' +
-  'text-ink-soft transition-colors duration-[120ms] hover:text-mq-maroon ' +
-  "[&.active]:font-semibold [&.active]:text-mq-maroon [&.active]:after:absolute " +
+  'text-ink-soft transition-colors duration-[120ms] hover:text-primary-deep ' +
+  "[&.active]:font-semibold [&.active]:text-primary-deep [&.active]:after:absolute " +
   "[&.active]:after:right-3 [&.active]:after:bottom-[-1px] [&.active]:after:left-3 " +
-  "[&.active]:after:h-0.5 [&.active]:after:rounded-[1px] [&.active]:after:bg-mq-maroon " +
+  "[&.active]:after:h-0.5 [&.active]:after:rounded-[1px] [&.active]:after:bg-primary-deep " +
   "[&.active]:after:content-['']";
 
 export default function StylePanel({

@@ -200,7 +200,7 @@ export default function ArrangeTab({
           type="button"
           className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-md
             border border-line bg-white p-2.5 text-[0.85rem] font-medium text-ink-soft
-            transition-colors duration-[120ms] hover:border-mq-maroon hover:text-mq-maroon"
+            transition-colors duration-[120ms] hover:border-primary-deep hover:text-primary-deep"
           onClick={() => setRotation(rotationRaw + 90)}
         >
           <RotateCw size={15} strokeWidth={2} />

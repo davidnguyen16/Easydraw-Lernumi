@@ -105,7 +105,7 @@ export default function DeleteAccountDialog({
               href="/privacy#retention"
               target="_blank"
               rel="noreferrer"
-              className="text-mq-red underline underline-offset-2"
+              className="text-primary underline underline-offset-2"
             >
               Privacy Policy
             </a>
@@ -128,7 +128,7 @@ export default function DeleteAccountDialog({
             disabled={isDeleting}
             aria-invalid={deleteError !== null}
             aria-describedby={deleteError ? 'delete-account-error' : undefined}
-            className="mt-2 h-10 w-full rounded-lg border border-line bg-white px-3 text-sm text-ink outline-none placeholder:text-ink-muted focus:border-mq-red focus:ring-1 focus:ring-mq-red disabled:cursor-not-allowed disabled:opacity-60"
+            className="mt-2 h-10 w-full rounded-lg border border-line bg-white px-3 text-sm text-ink outline-none placeholder:text-ink-muted focus:border-primary focus:ring-1 focus:ring-primary disabled:cursor-not-allowed disabled:opacity-60"
           />
           {deleteError && (
             <p id="delete-account-error" className="mt-2 text-xs text-red-600" role="alert">

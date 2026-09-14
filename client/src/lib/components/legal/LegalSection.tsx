@@ -17,7 +17,7 @@ export default function LegalSection({
   return (
     <section id={id} className="scroll-mt-24 border-b border-line-soft py-8 last:border-b-0 sm:py-10">
       <div className="mb-5 flex items-start gap-3">
-        <span className="mt-0.5 flex size-7 flex-shrink-0 items-center justify-center rounded-lg bg-mq-pink font-mono text-xs font-semibold text-mq-red">
+        <span className="mt-0.5 flex size-7 flex-shrink-0 items-center justify-center rounded-lg bg-primary-tint font-mono text-xs font-semibold text-primary">
           {String(number).padStart(2, '0')}
         </span>
         <h2 className="text-xl font-semibold tracking-tight text-ink sm:text-2xl">{title}</h2>

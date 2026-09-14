@@ -14,8 +14,8 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div className="mx-auto max-w-6xl px-4 pt-10 pb-8 text-center sm:px-6 sm:pt-14 sm:pb-10">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-mq-red/10 px-3 py-1 text-xs font-medium text-mq-red">
-          <span className="size-1.5 rounded-full bg-mq-red" />
+        <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+          <span className="size-1.5 rounded-full bg-primary" />
           Free to use
         </div>
         {/* 900px cap keeps the headline on ONE line at text-5xl on desktop. */}
@@ -32,7 +32,7 @@ export default function Hero() {
           ) : isAuthenticated ? (
             <Link
               href="/dashboard"
-              className="flex h-12 items-center gap-2 rounded-lg bg-mq-red px-6 font-medium text-white transition-colors hover:bg-mq-red-hover"
+              className="flex h-12 items-center gap-2 rounded-lg bg-primary px-6 font-medium text-white transition-colors hover:bg-primary-hover"
             >
               Open dashboard <ArrowRight size={16} />
             </Link>
@@ -40,7 +40,7 @@ export default function Hero() {
             <>
               <Link
                 href="/register"
-                className="flex h-12 items-center gap-2 rounded-lg bg-mq-red px-6 font-medium text-white transition-colors hover:bg-mq-red-hover"
+                className="flex h-12 items-center gap-2 rounded-lg bg-primary px-6 font-medium text-white transition-colors hover:bg-primary-hover"
               >
                 Start drawing free <ArrowRight size={16} />
               </Link>

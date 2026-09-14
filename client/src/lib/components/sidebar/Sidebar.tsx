@@ -107,7 +107,7 @@ export default function Sidebar() {
     <aside
       className={`absolute top-[0.2%] bottom-0 left-0 z-40 m-0 rounded-none border-l-0 bg-panel ${
         isResizing ? '' : 'transition-[width] duration-150'
-      } ${isCollapsed ? 'shadow-none' : 'shadow-[0_0_10px_#c4c1b8]'}`}
+      } ${isCollapsed ? 'shadow-none' : 'shadow-[0_0_10px_#b6c0c2]'}`}
       style={{ width: isCollapsed ? 0 : width }}
     >
       <div
@@ -116,7 +116,7 @@ export default function Sidebar() {
         }`}
         aria-hidden={isCollapsed}
       >
-        <div className="flex h-9 items-center rounded-lg border border-line bg-white px-2.5 focus-within:border-mq-red">
+        <div className="flex h-9 items-center rounded-lg border border-line bg-white px-2.5 focus-within:border-primary">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="size-4 shrink-0 text-ink-muted">
             <circle cx="11" cy="11" r="7" />
             <line x1="20" y1="20" x2="16.5" y2="16.5" />

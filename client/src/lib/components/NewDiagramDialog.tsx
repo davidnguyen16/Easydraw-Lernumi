@@ -111,11 +111,11 @@ export default function NewDiagramDialog({
             aria-invalid={showError}
             className={`w-full rounded-lg border px-3 py-2.5 text-ink outline-none placeholder:text-ink-muted focus:ring-1 ${
               showError
-                ? 'border-mq-red focus:border-mq-red focus:ring-mq-red'
-                : 'border-line focus:border-mq-red focus:ring-mq-red'
+                ? 'border-primary focus:border-primary focus:ring-primary'
+                : 'border-line focus:border-primary focus:ring-primary'
             }`}
           />
-          {showError && <p className="mt-1 text-xs text-mq-red">Diagram name is required.</p>}
+          {showError && <p className="mt-1 text-xs text-danger">Diagram name is required.</p>}
         </div>
 
         <div className="mb-6">
@@ -137,16 +137,16 @@ export default function NewDiagramDialog({
                   onClick={() => setType(dt.value)}
                   className={`flex items-start gap-3 rounded-lg border p-3 text-left transition-colors ${
                     selected
-                      ? 'border-mq-red bg-mq-red/5 ring-1 ring-mq-red/20'
+                      ? 'border-primary bg-primary/5 ring-1 ring-primary/20'
                       : 'border-line hover:bg-surface-hover'
                   }`}
                 >
                   <Icon
                     size={20}
-                    className={`mt-0.5 flex-shrink-0 ${selected ? 'text-mq-red' : 'text-ink-muted'}`}
+                    className={`mt-0.5 flex-shrink-0 ${selected ? 'text-primary' : 'text-ink-muted'}`}
                   />
                   <div className="min-w-0">
-                    <p className={`text-sm font-medium ${selected ? 'text-mq-red' : 'text-ink'}`}>
+                    <p className={`text-sm font-medium ${selected ? 'text-primary' : 'text-ink'}`}>
                       {dt.label}
                     </p>
                     <p className="text-xs text-ink-muted">{dt.description}</p>
@@ -170,7 +170,7 @@ export default function NewDiagramDialog({
             type="button"
             onClick={handleCreate}
             disabled={!isValid || loading}
-            className="rounded-lg bg-mq-red px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-mq-red-hover disabled:opacity-50"
+            className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-hover disabled:opacity-50"
           >
             {loading ? 'Creating…' : 'Create'}
           </button>

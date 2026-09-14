@@ -25,7 +25,7 @@ interface Props {
   onDelete: () => void;
 }
 
-const DEFAULT_COLOR = '#B4B2A9';
+const DEFAULT_COLOR = '#A5B0B3';
 const WIDTH_MIN = 0.5;
 const WIDTH_MAX = 10;
 
@@ -43,7 +43,7 @@ const ROUTINGS: { id: EdgeRouting; label: string }[] = [
 ];
 
 const COLOR_PAGES: string[][] = [
-  ['#B4B2A9', '#2C2C2A', '#A6192E', '#1F4E9C', '#0F7B5F', '#6B4DBA'], // defaults (grey leads)
+  ['#A5B0B3', '#2C2C2A', '#189589', '#0D91D3', '#763ADF', '#E9820C'], // defaults (grey leads; then ecosystem brand hues)
   ['#E53935', '#FF6347', '#FF7F0E', '#FB8C00', '#FFC107', '#FFD700'], // reds & oranges
   ['#FFEB3B', '#CDDC39', '#8BC34A', '#4CAF50', '#2E7D32', '#009688'], // yellows & greens
   ['#00BCD4', '#4FC3F7', '#2196F3', '#1F77B4', '#1A237E', '#3F51B5'], // cyans & blues
@@ -54,7 +54,7 @@ const LAST_COLOR_PAGE = COLOR_PAGES.length - 1;
 const COLOR_ARROW =
   'flex w-6 flex-shrink-0 cursor-pointer items-center justify-center rounded border-none ' +
   'bg-transparent text-ink-muted transition-colors duration-[120ms] ' +
-  'hover:bg-surface-hover hover:text-mq-maroon ' +
+  'hover:bg-surface-hover hover:text-primary-deep ' +
   'disabled:cursor-default disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-ink-muted';
 
 function Chevron() {
@@ -215,13 +215,13 @@ export default function ConnectionStylePanel({ edge, onDataChange, onDelete }: P
 
         <div className="flex flex-col gap-5 overflow-y-auto p-[18px]">
           <section className="flex flex-col gap-2.5">
-            <h3 className="m-0 text-[0.7rem] font-bold tracking-[0.08em] text-mq-maroon">ENDPOINTS</h3>
+            <h3 className="m-0 text-[0.7rem] font-bold tracking-[0.08em] text-primary-deep">ENDPOINTS</h3>
             <div className={`grid grid-cols-2 gap-2.5 transition-opacity duration-[120ms] ${markersLocked ? 'pointer-events-none opacity-40' : ''}`}>
               <div className="flex flex-col gap-1.5">
                 <span className="text-[0.78rem] text-[#6f7068]">Start</span>
                 <button
                   type="button"
-                  className="dd-trigger flex w-full cursor-pointer items-center gap-2 rounded-lg border border-line bg-white px-2.5 py-[9px] text-[0.85rem] text-ink-soft hover:border-[#c4c1b8] focus-visible:border-mq-red focus-visible:outline-none disabled:cursor-not-allowed"
+                  className="dd-trigger flex w-full cursor-pointer items-center gap-2 rounded-lg border border-line bg-white px-2.5 py-[9px] text-[0.85rem] text-ink-soft hover:border-[#b6c0c2] focus-visible:border-primary focus-visible:outline-none disabled:cursor-not-allowed"
                   aria-haspopup="listbox"
                   aria-expanded={openMenu === 'start'}
                   aria-label="Start endpoint"
@@ -236,7 +236,7 @@ export default function ConnectionStylePanel({ edge, onDataChange, onDelete }: P
                 <span className="text-[0.78rem] text-[#6f7068]">End</span>
                 <button
                   type="button"
-                  className="dd-trigger flex w-full cursor-pointer items-center gap-2 rounded-lg border border-line bg-white px-2.5 py-[9px] text-[0.85rem] text-ink-soft hover:border-[#c4c1b8] focus-visible:border-mq-red focus-visible:outline-none disabled:cursor-not-allowed"
+                  className="dd-trigger flex w-full cursor-pointer items-center gap-2 rounded-lg border border-line bg-white px-2.5 py-[9px] text-[0.85rem] text-ink-soft hover:border-[#b6c0c2] focus-visible:border-primary focus-visible:outline-none disabled:cursor-not-allowed"
                   aria-haspopup="listbox"
                   aria-expanded={openMenu === 'end'}
                   aria-label="End endpoint"
@@ -251,10 +251,10 @@ export default function ConnectionStylePanel({ edge, onDataChange, onDelete }: P
           </section>
 
           <section className="flex flex-col gap-2.5">
-            <h3 className="m-0 text-[0.7rem] font-bold tracking-[0.08em] text-mq-maroon">LINE STYLE</h3>
+            <h3 className="m-0 text-[0.7rem] font-bold tracking-[0.08em] text-primary-deep">LINE STYLE</h3>
             <button
               type="button"
-              className="dd-trigger flex w-full cursor-pointer items-center gap-2 rounded-lg border border-line bg-white px-2.5 py-[9px] text-[0.85rem] text-ink-soft hover:border-[#c4c1b8] focus-visible:border-mq-red focus-visible:outline-none"
+              className="dd-trigger flex w-full cursor-pointer items-center gap-2 rounded-lg border border-line bg-white px-2.5 py-[9px] text-[0.85rem] text-ink-soft hover:border-[#b6c0c2] focus-visible:border-primary focus-visible:outline-none"
               aria-haspopup="listbox"
               aria-expanded={openMenu === 'line'}
               aria-label="Line style"
@@ -267,7 +267,7 @@ export default function ConnectionStylePanel({ edge, onDataChange, onDelete }: P
           </section>
 
           <section className="flex flex-col gap-2.5">
-            <h3 className="m-0 text-[0.7rem] font-bold tracking-[0.08em] text-mq-maroon">ROUTING</h3>
+            <h3 className="m-0 text-[0.7rem] font-bold tracking-[0.08em] text-primary-deep">ROUTING</h3>
             <div className="flex gap-2.5">
               {ROUTINGS.map((r) => (
                 <button
@@ -275,8 +275,8 @@ export default function ConnectionStylePanel({ edge, onDataChange, onDelete }: P
                   type="button"
                   className={`flex flex-1 cursor-pointer items-center justify-center rounded-lg border py-2.5 transition-colors duration-[120ms] ${
                     routing === r.id
-                      ? 'border-mq-red bg-[#f7e3e4] text-mq-red'
-                      : 'border-line bg-white text-[#5f5e5a] hover:border-[#c4c1b8]'
+                      ? 'border-primary bg-[#f7e3e4] text-primary'
+                      : 'border-line bg-white text-[#4d5b61] hover:border-[#b6c0c2]'
                   }`}
                   aria-pressed={routing === r.id}
                   aria-label={`${r.label} routing`}
@@ -290,11 +290,11 @@ export default function ConnectionStylePanel({ edge, onDataChange, onDelete }: P
           </section>
 
           <section className="flex flex-col gap-2.5">
-            <h3 className="m-0 text-[0.7rem] font-bold tracking-[0.08em] text-mq-maroon">LINE WIDTH</h3>
+            <h3 className="m-0 text-[0.7rem] font-bold tracking-[0.08em] text-primary-deep">LINE WIDTH</h3>
             <div className="flex items-stretch gap-2.5">
               <button
                 type="button"
-                className="w-10 cursor-pointer rounded-lg border border-line bg-white text-base leading-none text-ink-soft hover:border-[#c4c1b8] hover:bg-[#faf9f6]"
+                className="w-10 cursor-pointer rounded-lg border border-line bg-white text-base leading-none text-ink-soft hover:border-[#b6c0c2] hover:bg-[#f9fbfb]"
                 aria-label="Decrease line width"
                 onClick={() => adjustWidth(-0.5)}
               >
@@ -305,7 +305,7 @@ export default function ConnectionStylePanel({ edge, onDataChange, onDelete }: P
               </div>
               <button
                 type="button"
-                className="w-10 cursor-pointer rounded-lg border border-line bg-white text-base leading-none text-ink-soft hover:border-[#c4c1b8] hover:bg-[#faf9f6]"
+                className="w-10 cursor-pointer rounded-lg border border-line bg-white text-base leading-none text-ink-soft hover:border-[#b6c0c2] hover:bg-[#f9fbfb]"
                 aria-label="Increase line width"
                 onClick={() => adjustWidth(0.5)}
               >
@@ -315,7 +315,7 @@ export default function ConnectionStylePanel({ edge, onDataChange, onDelete }: P
           </section>
 
           <section className="flex flex-col gap-2.5">
-            <h3 className="m-0 text-[0.7rem] font-bold tracking-[0.08em] text-mq-maroon">COLOR</h3>
+            <h3 className="m-0 text-[0.7rem] font-bold tracking-[0.08em] text-primary-deep">COLOR</h3>
             <div className="flex items-stretch gap-1">
               <button
                 type="button"
@@ -332,7 +332,7 @@ export default function ConnectionStylePanel({ edge, onDataChange, onDelete }: P
                     key={c}
                     type="button"
                     className={`aspect-square w-full cursor-pointer rounded-full border-none p-0 transition-[transform,box-shadow] duration-100 hover:-translate-y-px ${
-                      strokeColor === c ? 'shadow-[0_0_0_2px_#f5f3ef,0_0_0_4px_#76232f]' : ''
+                      strokeColor === c ? 'shadow-[0_0_0_2px_#ecf3f3,0_0_0_4px_#126862]' : ''
                     }`}
                     style={{ backgroundColor: c }}
                     aria-label={`Line colour ${c}`}
@@ -358,7 +358,7 @@ export default function ConnectionStylePanel({ edge, onDataChange, onDelete }: P
 
           <button
             type="button"
-            className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-line bg-white py-3 text-[0.88rem] text-mq-red transition-colors duration-[120ms] hover:border-mq-red hover:bg-[#fdf2f1]"
+            className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-line bg-white py-3 text-[0.88rem] text-primary transition-colors duration-[120ms] hover:border-primary hover:bg-[#eef9f8]"
             onClick={onDelete}
           >
             <Trash2 size={15} />
@@ -379,8 +379,8 @@ export default function ConnectionStylePanel({ edge, onDataChange, onDelete }: P
             type="button"
             role="option"
             aria-selected={currentMarker === 'none'}
-            className={`-mx-1.5 flex cursor-pointer items-center justify-center gap-2.5 border-b border-[#eae7dd] bg-transparent px-2.5 py-2 text-[0.85rem] whitespace-nowrap text-ink-soft ${
-              currentMarker === 'none' ? 'bg-[#f7e9ea]' : 'hover:bg-[#f3f1ea]'
+            className={`-mx-1.5 flex cursor-pointer items-center justify-center gap-2.5 border-b border-[#dee6e8] bg-transparent px-2.5 py-2 text-[0.85rem] whitespace-nowrap text-ink-soft ${
+              currentMarker === 'none' ? 'bg-[#e7f8f6]' : 'hover:bg-[#ebf2f2]'
             }`}
             onClick={() => pickMarker(endpointEnd, 'none')}
           >
@@ -393,7 +393,7 @@ export default function ConnectionStylePanel({ edge, onDataChange, onDelete }: P
               role="option"
               aria-selected={m.id === currentMarker}
               className={`flex cursor-pointer items-center gap-2.5 rounded-md border-none bg-transparent px-2.5 py-[7px] text-left text-[0.85rem] whitespace-nowrap text-ink-soft ${
-                m.id === currentMarker ? 'bg-[#f7e9ea]' : 'hover:bg-[#f3f1ea]'
+                m.id === currentMarker ? 'bg-[#e7f8f6]' : 'hover:bg-[#ebf2f2]'
               }`}
               title={m.label}
               aria-label={m.label}
@@ -404,7 +404,7 @@ export default function ConnectionStylePanel({ edge, onDataChange, onDelete }: P
           ))}
           <button
             type="button"
-            className="-mx-1.5 flex cursor-pointer items-center justify-center gap-2.5 border-t border-[#eae7dd] bg-transparent px-2.5 py-2 text-[0.85rem] whitespace-nowrap text-[#5f5e5a] hover:bg-[#f3f1ea]"
+            className="-mx-1.5 flex cursor-pointer items-center justify-center gap-2.5 border-t border-[#dee6e8] bg-transparent px-2.5 py-2 text-[0.85rem] whitespace-nowrap text-[#4d5b61] hover:bg-[#ebf2f2]"
             onClick={openMore}
           >
             More
@@ -427,7 +427,7 @@ export default function ConnectionStylePanel({ edge, onDataChange, onDelete }: P
               role="option"
               aria-selected={s.id === lineStyle}
               className={`flex cursor-pointer items-center gap-2.5 rounded-md border-none bg-transparent px-2.5 py-[7px] text-left text-[0.85rem] whitespace-nowrap text-ink-soft ${
-                s.id === lineStyle ? 'bg-[#f7e9ea]' : 'hover:bg-[#f3f1ea]'
+                s.id === lineStyle ? 'bg-[#e7f8f6]' : 'hover:bg-[#ebf2f2]'
               }`}
               onClick={() => pickLineStyle(s.id)}
             >

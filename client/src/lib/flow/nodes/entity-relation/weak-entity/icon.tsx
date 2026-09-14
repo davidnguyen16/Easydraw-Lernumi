@@ -3,17 +3,17 @@ export default function Icon() {
   return (
     <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" className="size-[80%]">
     	
-    	<rect x="3.5" y="3.5" width="53" height="53" rx="3" fill="white" stroke="#A6192E" strokeWidth="1.5" />
+    	<rect x="3.5" y="3.5" width="53" height="53" rx="3" fill="white" stroke="#189589" strokeWidth="1.5" />
     	
-    	<rect x="7" y="7" width="46" height="46" rx="2" fill="none" stroke="#A6192E" strokeWidth="1.2" />
+    	<rect x="7" y="7" width="46" height="46" rx="2" fill="none" stroke="#189589" strokeWidth="1.2" />
     	
-    	<line x1="7" y1="17.5" x2="53" y2="17.5" stroke="#A6192E" strokeWidth="1.2" />
+    	<line x1="7" y1="17.5" x2="53" y2="17.5" stroke="#189589" strokeWidth="1.2" />
     	<text
     		x="30"
     		y="14.5"
     		textAnchor="middle"
     		font-size="6"
-    		fill="#A6192E"
+    		fill="#189589"
     		font-weight="700"
     		font-family="system-ui, sans-serif">Weak Entity</text
     	>

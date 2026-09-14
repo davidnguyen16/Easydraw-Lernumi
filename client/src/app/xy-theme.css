@@ -7,53 +7,53 @@
  * MUST be imported AFTER the base React Flow stylesheet so these win.
  */
 .react-flow {
-	--xy-edge-stroke-default: #c4c1b8;
+	--xy-edge-stroke-default: #b6c0c2;
 	--xy-edge-stroke-width-default: 1;
-	--xy-edge-stroke-selected-default: #76232f;
+	--xy-edge-stroke-selected-default: #126862;
 
-	--xy-connectionline-stroke-default: #a6192e;
+	--xy-connectionline-stroke-default: #189589;
 	--xy-connectionline-stroke-width-default: 1;
 
 	--xy-attribution-background-color-default: rgba(255, 255, 255, 0.5);
 
-	--xy-minimap-background-color-default: #edebe5;
-	--xy-minimap-mask-background-color-default: rgba(214, 210, 196, 0.6);
+	--xy-minimap-background-color-default: #e2e9ea;
+	--xy-minimap-mask-background-color-default: rgba(207, 219, 222, 0.6);
 	--xy-minimap-mask-stroke-color-default: transparent;
 	--xy-minimap-mask-stroke-width-default: 1;
-	--xy-minimap-node-background-color-default: #d6d2c4;
+	--xy-minimap-node-background-color-default: #cfdbde;
 	--xy-minimap-node-stroke-color-default: transparent;
 	--xy-minimap-node-stroke-width-default: 2;
 
 	--xy-background-color-default: transparent;
-	--xy-background-pattern-dots-color-default: #c4c1b8;
-	--xy-background-pattern-lines-color-default: #d6d2c4;
-	--xy-background-pattern-cross-color-default: #d6d2c4;
+	--xy-background-pattern-dots-color-default: #b6c0c2;
+	--xy-background-pattern-lines-color-default: #cfdbde;
+	--xy-background-pattern-cross-color-default: #cfdbde;
 
-	--xy-theme-selected: #a6192e;
-	--xy-theme-hover: #d6d2c4;
-	--xy-theme-edge-hover: #373a36;
-	--xy-theme-color-focus: #edebe5;
+	--xy-theme-selected: #189589;
+	--xy-theme-hover: #cfdbde;
+	--xy-theme-edge-hover: #253035;
+	--xy-theme-color-focus: #e2e9ea;
 
 	--xy-node-color-default: inherit;
-	--xy-node-border-default: 1px solid #d6d2c4;
+	--xy-node-border-default: 1px solid #cfdbde;
 	--xy-node-boxshadow-default:
 		0px 3.54px 4.55px 0px #00000005, 0px 3.54px 4.55px 0px #0000000d,
 		0px 0.51px 1.01px 0px #0000001a;
 	--xy-node-border-radius-default: 8px;
 
 	--xy-handle-background-color-default: #ffffff;
-	--xy-handle-border-color-default: #c4c1b8;
+	--xy-handle-border-color-default: #b6c0c2;
 
-	--xy-edge-label-color-default: #5a5c58;
-	--xy-resize-background-color-default: #a6192e;
+	--xy-edge-label-color-default: #4d5b61;
+	--xy-resize-background-color-default: #189589;
 
 	--xy-node-background-color-default: #fff;
-	--xy-node-group-background-color-default: rgba(237, 235, 229, 0.35);
+	--xy-node-group-background-color-default: rgba(226, 233, 234, 0.35);
 	--xy-node-boxshadow-hover-default: 0 1px 4px 1px rgba(0, 0, 0, 0.08);
-	--xy-node-boxshadow-selected-default: 0 0 0 1.5px #a6192e;
+	--xy-node-boxshadow-selected-default: 0 0 0 1.5px #189589;
 
-	--xy-selection-background-color-default: rgba(166, 25, 46, 0.06);
-	--xy-selection-border-default: 1px dotted rgba(166, 25, 46, 0.45);
+	--xy-selection-background-color-default: rgba(24, 149, 137, 0.06);
+	--xy-selection-border-default: 1px dotted rgba(24, 149, 137, 0.45);
 
 	--xy-controls-button-background-color-default: #fefefe;
 	--xy-controls-button-background-color-hover-default: #f4f4f4;
@@ -82,23 +82,23 @@
 	border-radius: 0;
 }
 
-/* Connection handle dot — 10px white circle, red ring. Two classes (0,2,0)
+/* Connection handle dot — 10px white circle, teal ring. Two classes (0,2,0)
    out-specify xyflow's `.react-flow__handle` (0,1,0). */
 .react-flow__handle.shape-conn {
 	width: 10px;
 	height: 10px;
 	background: #ffffff;
-	border: 1.5px solid #a6192e;
+	border: 1.5px solid #189589;
 	border-radius: 50%;
 }
 
-/* Resize corner anchors — 15px white square, red ring. The three-class
+/* Resize corner anchors — 15px white square, teal ring. The three-class
    selector out-specifies xyflow's `.handle` (5px). */
 .react-flow__resize-control.handle.shape-resize-anchor {
 	width: 15px;
 	height: 15px;
 	background: #ffffff;
-	border: 2px solid #a6192e;
+	border: 2px solid #189589;
 	border-radius: 4px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
 }
@@ -123,14 +123,14 @@
 	width: 10px;
 	height: 10px;
 	background: #ffffff;
-	border: 1.5px solid #a6192e;
+	border: 1.5px solid #189589;
 	border-radius: 50%;
 }
 .react-flow__resize-control.handle.entity-resize-anchor {
 	width: 15px;
 	height: 15px;
 	background: #ffffff;
-	border: 2px solid #a6192e;
+	border: 2px solid #189589;
 	border-radius: 4px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
 }
@@ -145,14 +145,14 @@
 	width: 10px;
 	height: 10px;
 	background: #ffffff;
-	border: 1.5px solid #a6192e;
+	border: 1.5px solid #189589;
 	border-radius: 50%;
 }
 .react-flow__resize-control.handle.network-resize-anchor {
 	width: 15px;
 	height: 15px;
 	background: #ffffff;
-	border: 2px solid #a6192e;
+	border: 2px solid #189589;
 	border-radius: 4px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
 }
@@ -221,5 +221,5 @@ body.connection-dragging * {
 	pointer-events: all;
 }
 .react-flow__node.conn-snap-target .entity-card {
-	box-shadow: 0 4px 12px rgba(166, 25, 46, 0.15);
+	box-shadow: 0 4px 12px rgba(24, 149, 137, 0.15);
 }

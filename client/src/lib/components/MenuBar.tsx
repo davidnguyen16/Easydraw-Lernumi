@@ -273,7 +273,7 @@ export default function MenuBar() {
   return (
     <>
       <header
-        className="flex h-[52px] items-center gap-[0.4rem] bg-mq-maroon px-[0.85rem] text-white
+        className="flex h-[52px] items-center gap-[0.4rem] bg-primary-deep px-[0.85rem] text-white
           [font-family:system-ui,-apple-system,sans-serif]"
       >
         <Link
@@ -283,7 +283,7 @@ export default function MenuBar() {
           className="flex flex-shrink-0 items-center rounded-md p-1 transition-colors hover:bg-white/10"
         >
           <svg width="40" height="40" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-            <rect x="4" y="4" width="40" height="40" rx="8" fill="#A6192E" />
+            <rect x="4" y="4" width="40" height="40" rx="8" fill="#189589" />
             <rect x="12" y="12" width="12" height="8" rx="2" fill="white" opacity="0.95" />
             <rect x="28" y="28" width="12" height="8" rx="2" fill="white" opacity="0.95" />
             <path
@@ -346,8 +346,8 @@ export default function MenuBar() {
                   aria-checked={status === s.id}
                   className={`group relative flex w-full cursor-pointer items-center gap-3 rounded-md
                     border-none bg-transparent px-3 py-2 text-left text-[0.875rem] text-[#2a2a2a]
-                    transition-colors duration-100 enabled:hover:bg-mq-pink enabled:hover:text-mq-maroon
-                    [&.active]:bg-mq-pink [&.active]:text-mq-maroon ${status === s.id ? 'active' : ''}`}
+                    transition-colors duration-100 enabled:hover:bg-primary-tint enabled:hover:text-primary-deep
+                    [&.active]:bg-primary-tint [&.active]:text-primary-deep ${status === s.id ? 'active' : ''}`}
                   onClick={() => selectStatus(s.id)}
                 >
                   <span
@@ -386,7 +386,7 @@ export default function MenuBar() {
                 >
                   {menus[label].map((item, i) =>
                     item.type === 'divider' ? (
-                      <div key={`d${i}`} className="mx-1 my-1 h-px bg-[#e8e5de]" role="separator" />
+                      <div key={`d${i}`} className="mx-1 my-1 h-px bg-[#dee6e8]" role="separator" />
                     ) : (
                       <div key={item.label} className="relative flex flex-col">
                         <button
@@ -394,12 +394,12 @@ export default function MenuBar() {
                           role="menuitem"
                           className={`group flex w-full cursor-pointer items-center gap-3 rounded-md
                             border-none bg-transparent px-3 py-2 text-left text-[0.875rem] text-[#2a2a2a]
-                            transition-colors duration-100 enabled:hover:bg-mq-pink enabled:hover:text-mq-maroon
+                            transition-colors duration-100 enabled:hover:bg-primary-tint enabled:hover:text-primary-deep
                             disabled:cursor-not-allowed disabled:text-[#b8b8b8]
-                            [&.active:not(:disabled)]:bg-mq-pink [&.active:not(:disabled)]:text-mq-maroon
-                            [&.danger]:text-[#b42318]
-                            [&.danger:not(:disabled)]:hover:bg-[#fdf2f1]
-                            [&.danger:not(:disabled)]:hover:text-[#b42318]
+                            [&.active:not(:disabled)]:bg-primary-tint [&.active:not(:disabled)]:text-primary-deep
+                            [&.danger]:text-danger
+                            [&.danger:not(:disabled)]:hover:bg-danger-tint
+                            [&.danger:not(:disabled)]:hover:text-danger
                             ${item.danger ? 'danger' : ''}
                             ${item.submenu && openSubmenu === item.label ? 'active' : ''}`}
                           disabled={item.disabled}
@@ -407,10 +407,10 @@ export default function MenuBar() {
                         >
                           <span
                             className="inline-flex h-[18px] w-[18px] flex-shrink-0 items-center
-                              justify-center text-[#5a5c58]
-                              group-[:hover:not(:disabled)]:text-mq-maroon
-                              group-[.active:not(:disabled)]:text-mq-maroon
-                              group-[.danger]:text-[#b42318] group-disabled:text-[#c8c8c8]"
+                              justify-center text-[#4d5b61]
+                              group-[:hover:not(:disabled)]:text-primary-deep
+                              group-[.active:not(:disabled)]:text-primary-deep
+                              group-[.danger]:text-danger group-disabled:text-[#c8c8c8]"
                           >
                             {item.toggle
                               ? item.checked && <UiIcon name="check" className="h-4 w-4" />
@@ -420,8 +420,8 @@ export default function MenuBar() {
                           {item.shortcut ? (
                             <span
                               className="text-[0.78rem] tabular-nums text-ink-muted
-                                group-[:hover:not(:disabled)]:text-mq-red
-                                group-[.active:not(:disabled)]:text-mq-red"
+                                group-[:hover:not(:disabled)]:text-primary
+                                group-[.active:not(:disabled)]:text-primary"
                             >
                               {item.shortcut}
                             </span>
@@ -448,7 +448,7 @@ export default function MenuBar() {
                                 className="group flex w-full cursor-pointer items-center gap-3 rounded-md
                                   border-none bg-transparent px-3 py-2 text-left text-[0.875rem]
                                   text-[#2a2a2a] transition-colors duration-100
-                                  enabled:hover:bg-mq-pink enabled:hover:text-mq-maroon
+                                  enabled:hover:bg-primary-tint enabled:hover:text-primary-deep
                                   disabled:cursor-not-allowed disabled:text-[#b8b8b8]"
                                 disabled={sub.disabled}
                                 onClick={() => runItem(sub)}
@@ -458,7 +458,7 @@ export default function MenuBar() {
                                 {sub.shortcut && (
                                   <span
                                     className="text-[0.78rem] tabular-nums text-ink-muted
-                                      group-[:hover:not(:disabled)]:text-mq-red"
+                                      group-[:hover:not(:disabled)]:text-primary"
                                   >
                                     {sub.shortcut}
                                   </span>
@@ -538,8 +538,8 @@ export default function MenuBar() {
             <button
               type="button"
               className="flex h-[30px] w-[30px] cursor-pointer items-center justify-center rounded-full
-                border-none bg-mq-red-hover text-[0.75rem] font-bold tracking-[0.02em] text-white
-                transition-colors duration-[120ms] hover:bg-mq-maroon
+                border-none bg-primary-hover text-[0.75rem] font-bold tracking-[0.02em] text-white
+                transition-colors duration-[120ms] hover:bg-primary-deep
                 focus-visible:outline-offset-1 focus-visible:[outline:2px_solid_rgba(255,255,255,0.6)]"
               title={accountName}
               aria-haspopup="menu"
@@ -565,17 +565,17 @@ export default function MenuBar() {
                   )}
                 </div>
 
-                <div className="mx-1 my-1 h-px bg-[#e8e5de]" role="separator" />
+                <div className="mx-1 my-1 h-px bg-[#dee6e8]" role="separator" />
 
                 <button
                   type="button"
                   role="menuitem"
                   className="group flex w-full cursor-pointer items-center gap-2.5 rounded-md
                     border-none bg-transparent px-2.5 py-2 text-left text-[0.875rem] text-[#2a2a2a]
-                    transition-colors duration-100 enabled:hover:bg-mq-pink enabled:hover:text-mq-maroon"
+                    transition-colors duration-100 enabled:hover:bg-primary-tint enabled:hover:text-primary-deep"
                   onClick={goToDashboard}
                 >
-                  <LayoutGrid size={15} className="flex-shrink-0 text-[#5a5c58] group-hover:text-mq-maroon" />
+                  <LayoutGrid size={15} className="flex-shrink-0 text-[#4d5b61] group-hover:text-primary-deep" />
                   My diagrams
                 </button>
                 <button
@@ -583,10 +583,10 @@ export default function MenuBar() {
                   role="menuitem"
                   className="group flex w-full cursor-pointer items-center gap-2.5 rounded-md
                     border-none bg-transparent px-2.5 py-2 text-left text-[0.875rem] text-[#2a2a2a]
-                    transition-colors duration-100 enabled:hover:bg-mq-pink enabled:hover:text-mq-maroon"
+                    transition-colors duration-100 enabled:hover:bg-primary-tint enabled:hover:text-primary-deep"
                   onClick={goToSettings}
                 >
-                  <SettingsIcon size={15} className="flex-shrink-0 text-[#5a5c58] group-hover:text-mq-maroon" />
+                  <SettingsIcon size={15} className="flex-shrink-0 text-[#4d5b61] group-hover:text-primary-deep" />
                   Settings
                 </button>
                 <button
@@ -594,10 +594,10 @@ export default function MenuBar() {
                   role="menuitem"
                   className="group flex w-full cursor-pointer items-center gap-2.5 rounded-md
                     border-none bg-transparent px-2.5 py-2 text-left text-[0.875rem] text-[#2a2a2a]
-                    transition-colors duration-100 enabled:hover:bg-mq-pink enabled:hover:text-mq-maroon"
+                    transition-colors duration-100 enabled:hover:bg-primary-tint enabled:hover:text-primary-deep"
                   onClick={signOut}
                 >
-                  <LogOut size={15} className="flex-shrink-0 text-[#5a5c58] group-hover:text-mq-maroon" />
+                  <LogOut size={15} className="flex-shrink-0 text-[#4d5b61] group-hover:text-primary-deep" />
                   Sign out
                 </button>
               </div>
@@ -607,8 +607,8 @@ export default function MenuBar() {
           <button
             type="button"
             className="inline-flex h-9 cursor-pointer items-center justify-center gap-2 rounded-[8px]
-              border-none bg-mq-red px-[18px] text-[0.95rem] font-semibold text-white transition-colors
-              duration-[120ms] hover:bg-mq-red-hover"
+              border-none bg-primary px-[18px] text-[0.95rem] font-semibold text-white transition-colors
+              duration-[120ms] hover:bg-primary-hover"
             onClick={editor.present}
           >
             <svg
@@ -659,10 +659,10 @@ export default function MenuBar() {
                     role="menuitem"
                     className="group flex w-full cursor-pointer items-center gap-3 rounded-md
                       border-none bg-transparent px-3 py-2 text-left text-[0.875rem] text-[#2a2a2a]
-                      transition-colors duration-100 enabled:hover:bg-mq-pink enabled:hover:text-mq-maroon"
+                      transition-colors duration-100 enabled:hover:bg-primary-tint enabled:hover:text-primary-deep"
                     onClick={() => runQuickExport(format.id)}
                   >
-                    <Download size={15} className="flex-shrink-0 text-[#5a5c58] group-hover:text-mq-maroon" />
+                    <Download size={15} className="flex-shrink-0 text-[#4d5b61] group-hover:text-primary-deep" />
                     <span className="flex-1">{format.label}</span>
                     <span className="text-[0.75rem] text-ink-muted">{format.extension}</span>
                   </button>

@@ -18,7 +18,7 @@ function CheckBox({ checked, indeterminate }: { checked: boolean; indeterminate:
   return (
     <span
       className={`inline-flex size-5 shrink-0 items-center justify-center rounded-[5px] text-white ${
-        checked || indeterminate ? 'bg-mq-red' : 'bg-line-dropdown'
+        checked || indeterminate ? 'bg-primary' : 'bg-line-dropdown'
       }`}
     >
       {indeterminate ? (
@@ -109,7 +109,7 @@ export default function LineEndingsDialog({ onClose }: Props) {
                 type="button"
                 className={`cursor-pointer border-l-[3px] px-4 py-2.5 text-left text-[0.9rem] ${
                   activeCategory === c.id
-                    ? 'border-l-mq-red bg-mq-pink font-semibold text-mq-red'
+                    ? 'border-l-primary bg-primary-tint font-semibold text-primary'
                     : 'border-l-transparent text-ink-soft hover:bg-panel'
                 }`}
                 onClick={() => setActiveCategory(c.id)}
@@ -165,7 +165,7 @@ export default function LineEndingsDialog({ onClose }: Props) {
             </button>
             <button
               type="button"
-              className="cursor-pointer rounded-lg border border-mq-red bg-mq-red px-5 py-[9px] text-[0.88rem] font-semibold text-white hover:bg-mq-red-hover"
+              className="cursor-pointer rounded-lg border border-primary bg-primary px-5 py-[9px] text-[0.88rem] font-semibold text-white hover:bg-primary-hover"
               onClick={apply}
             >
               Apply

@@ -70,7 +70,7 @@ export default function RegisterPage() {
       <div className="mt-8 w-full rounded-2xl border border-line bg-white p-7 shadow-sm">
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           {error && (
-            <p className="rounded-lg bg-mq-pink px-3 py-2 text-sm text-mq-red" role="alert">{error}</p>
+            <p className="rounded-lg bg-danger-tint px-3 py-2 text-sm text-danger" role="alert">{error}</p>
           )}
 
           <div className="flex flex-col gap-1.5">
@@ -85,7 +85,7 @@ export default function RegisterPage() {
                 required
                 autoComplete="email"
                 placeholder="you@example.com"
-                className="w-full rounded-lg border border-line py-2.5 pr-3 pl-10 text-ink outline-none placeholder:text-ink-muted focus:border-mq-red focus:ring-1 focus:ring-mq-red"
+                className="w-full rounded-lg border border-line py-2.5 pr-3 pl-10 text-ink outline-none placeholder:text-ink-muted focus:border-primary focus:ring-1 focus:ring-primary"
               />
             </div>
           </div>
@@ -103,7 +103,7 @@ export default function RegisterPage() {
                 minLength={8}
                 autoComplete="new-password"
                 placeholder="Enter your password"
-                className="w-full rounded-lg border border-line py-2.5 pr-10 pl-10 text-ink outline-none placeholder:text-ink-muted focus:border-mq-red focus:ring-1 focus:ring-mq-red"
+                className="w-full rounded-lg border border-line py-2.5 pr-10 pl-10 text-ink outline-none placeholder:text-ink-muted focus:border-primary focus:ring-1 focus:ring-primary"
               />
               <button
                 type="button"
@@ -130,7 +130,7 @@ export default function RegisterPage() {
                 minLength={8}
                 autoComplete="new-password"
                 placeholder="Re-enter your password"
-                className="w-full rounded-lg border border-line py-2.5 pr-10 pl-10 text-ink outline-none placeholder:text-ink-muted focus:border-mq-red focus:ring-1 focus:ring-mq-red"
+                className="w-full rounded-lg border border-line py-2.5 pr-10 pl-10 text-ink outline-none placeholder:text-ink-muted focus:border-primary focus:ring-1 focus:ring-primary"
               />
               <button
                 type="button"
@@ -153,15 +153,15 @@ export default function RegisterPage() {
                 onChange={(e) => setAcceptedPolicies(e.target.checked)}
                 required
                 aria-describedby="policy-consent-help"
-                className="mt-0.5 size-4 flex-shrink-0 cursor-pointer accent-mq-red"
+                className="mt-0.5 size-4 flex-shrink-0 cursor-pointer accent-primary"
               />
               <label htmlFor="policy-consent" className="cursor-pointer text-sm leading-5 text-ink">
                 I agree to the{' '}
-                <Link href="/terms" target="_blank" rel="noreferrer" className="font-medium text-mq-red underline underline-offset-2 hover:text-mq-maroon">
+                <Link href="/terms" target="_blank" rel="noreferrer" className="font-medium text-primary underline underline-offset-2 hover:text-primary-deep">
                   Terms of Service
                 </Link>{' '}
                 and acknowledge the{' '}
-                <Link href="/privacy" target="_blank" rel="noreferrer" className="font-medium text-mq-red underline underline-offset-2 hover:text-mq-maroon">
+                <Link href="/privacy" target="_blank" rel="noreferrer" className="font-medium text-primary underline underline-offset-2 hover:text-primary-deep">
                   Privacy Policy
                 </Link>.
               </label>
@@ -174,7 +174,7 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="mt-1 flex w-full items-center justify-center gap-2 rounded-lg bg-mq-maroon py-2.5 font-semibold text-white transition-colors hover:bg-mq-red disabled:cursor-not-allowed disabled:opacity-60"
+            className="mt-1 flex w-full items-center justify-center gap-2 rounded-lg bg-primary-deep py-2.5 font-semibold text-white transition-colors hover:bg-primary disabled:cursor-not-allowed disabled:opacity-60"
           >
             {isSubmitting ? (
               <>
@@ -205,7 +205,7 @@ export default function RegisterPage() {
 
       <p className="mt-6 text-center text-sm text-ink-muted">
         Already have an account?{' '}
-        <Link href="/login" className="font-medium text-mq-red hover:underline">Sign in</Link>
+        <Link href="/login" className="font-medium text-primary hover:underline">Sign in</Link>
       </p>
     </>
   );

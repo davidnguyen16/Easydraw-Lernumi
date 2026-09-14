@@ -76,7 +76,7 @@ export default function LibraryAssetsSection({ searchQuery }: { searchQuery: str
     <section className="flex flex-col gap-[0.6rem]">
       <button
         type="button"
-        className="group flex w-full cursor-pointer items-center gap-2 border-none bg-transparent px-0 py-[0.2rem] text-left text-mq-maroon"
+        className="group flex w-full cursor-pointer items-center gap-2 border-none bg-transparent px-0 py-[0.2rem] text-left text-primary-deep"
         aria-expanded={isExpanded}
         onClick={() => setExpanded((value) => !value)}
       >
@@ -100,7 +100,7 @@ export default function LibraryAssetsSection({ searchQuery }: { searchQuery: str
       {isExpanded ? (
         <div className="flex flex-col gap-3 pl-[1.4rem]">
           {loading ? <p className="text-[0.75rem] text-ink-muted">Loading library…</p> : null}
-          {error ? <p className="text-[0.7rem] leading-snug text-mq-red">{error}</p> : null}
+          {error ? <p className="text-[0.7rem] leading-snug text-danger">{error}</p> : null}
           {!loading && !error && groups.length === 0 ? (
             <p className="text-[0.75rem] leading-snug text-ink-muted italic">
               {searchQuery ? 'No matching library assets.' : 'No library assets imported yet.'}
@@ -114,7 +114,7 @@ export default function LibraryAssetsSection({ searchQuery }: { searchQuery: str
                 {group.assets.map((asset) => (
                   <div key={asset.id} className="min-w-0">
                     <div
-                      className="flex aspect-square cursor-grab items-center justify-center overflow-hidden rounded-lg border border-[#e8e2d3] bg-white p-1 hover:border-mq-red active:cursor-grabbing"
+                      className="flex aspect-square cursor-grab items-center justify-center overflow-hidden rounded-lg border border-[#dee6e8] bg-white p-1 hover:border-primary active:cursor-grabbing"
                       draggable
                       onDragStart={(event) => startDrag(event, asset)}
                       onDragEnd={clearDragPayload}

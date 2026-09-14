@@ -36,10 +36,10 @@ export default function HowItWorks() {
             const Icon = s.icon;
             return (
               <div key={s.step} className="relative rounded-xl border border-line-soft bg-white p-6">
-                <span className="absolute top-5 right-6 text-3xl font-bold text-mq-red/10">
+                <span className="absolute top-5 right-6 text-3xl font-bold text-primary/10">
                   {s.step}
                 </span>
-                <div className="mb-4 flex size-11 items-center justify-center rounded-lg bg-mq-red/10 text-mq-red">
+                <div className="mb-4 flex size-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <Icon size={20} />
                 </div>
                 <h3 className="font-semibold text-ink">{s.title}</h3>

@@ -102,7 +102,7 @@ export default function RenameDiagramDialog({
                 save();
               }
             }}
-            className="w-full rounded-lg border border-line px-3 py-2.5 text-ink outline-none focus:border-mq-red focus:ring-1 focus:ring-mq-red disabled:opacity-60"
+            className="w-full rounded-lg border border-line px-3 py-2.5 text-ink outline-none focus:border-primary focus:ring-1 focus:ring-primary disabled:opacity-60"
           />
         </div>
 
@@ -117,7 +117,7 @@ export default function RenameDiagramDialog({
           <button
             onClick={save}
             disabled={!changed || loading}
-            className="flex items-center gap-2 rounded-lg bg-mq-red px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-mq-red-hover disabled:opacity-50"
+            className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-hover disabled:opacity-50"
           >
             {loading ? (
               <>

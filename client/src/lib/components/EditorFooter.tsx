@@ -168,7 +168,7 @@ export default function EditorFooter() {
                 }}
                 onContextMenu={(event) => openContextMenu(event, page.id)}
               >
-                {isActive && <div className="absolute top-0 right-0 left-0 h-[2px] bg-mq-red" />}
+                {isActive && <div className="absolute top-0 right-0 left-0 h-[2px] bg-primary" />}
 
                 {isEditing ? (
                   <input
@@ -196,7 +196,7 @@ export default function EditorFooter() {
                     {pages.length > 1 && (
                       <button
                         type="button"
-                        className="absolute right-1.5 rounded p-0.5 opacity-0 transition-all hover:bg-mq-red/15 group-hover:opacity-100"
+                        className="absolute right-1.5 rounded p-0.5 opacity-0 transition-all hover:bg-primary/15 group-hover:opacity-100"
                         aria-label="Delete page"
                         onClick={(event) => {
                           event.stopPropagation();
@@ -220,7 +220,7 @@ export default function EditorFooter() {
 
           <button
             type="button"
-            className="mx-1.5 flex w-7 flex-shrink-0 items-center justify-center rounded text-[#6B6B6B] transition-colors hover:bg-[#F0F0F0] hover:text-mq-red"
+            className="mx-1.5 flex w-7 flex-shrink-0 items-center justify-center rounded text-[#6B6B6B] transition-colors hover:bg-[#F0F0F0] hover:text-primary"
             title="Add page"
             aria-label="Add page"
             onClick={addPage}
@@ -232,7 +232,7 @@ export default function EditorFooter() {
 
       {/* Shape count (right) */}
       <div className="flex items-center gap-1.5 border-l border-[#E0E0E0] bg-white px-3">
-        <Layers className="h-3.5 w-3.5 text-mq-red" />
+        <Layers className="h-3.5 w-3.5 text-primary" />
         <span className="text-xs font-semibold text-[#2C2C2A] tabular-nums">{nodeCount}</span>
         <span className="text-xs text-[#6B6B6B]">shapes</span>
       </div>

@@ -18,9 +18,9 @@ const TOOL_ICON = 'flex size-[26px] flex-none items-center justify-center rounde
 const SEP = 'mx-1.5 h-5 w-px flex-none bg-line-soft';
 const FONT_BOX =
   'inline-flex h-[26px] items-center gap-1.5 rounded-md border border-line-soft px-2 text-[11.5px]';
-const SEC = 'flex items-center gap-1.5 text-[9.5px] font-bold tracking-[0.07em] text-mq-maroon';
+const SEC = 'flex items-center gap-1.5 text-[9.5px] font-bold tracking-[0.07em] text-primary-deep';
 const TILE =
-  'flex aspect-square items-center justify-center rounded-lg border border-[#e8e2d3] bg-white text-mq-red';
+  'flex aspect-square items-center justify-center rounded-lg border border-[#dee6e8] bg-white text-primary';
 
 function Chevron({ open }: { open: boolean }) {
   return (
@@ -71,8 +71,8 @@ export default function HeroPreview() {
           </div>
 
           {/* MenuBar */}
-          <div className="flex h-[46px] items-center gap-[7px] bg-mq-maroon px-3 text-white">
-            <span className="grid size-[26px] flex-none place-items-center rounded-[7px] bg-mq-red">
+          <div className="flex h-[46px] items-center gap-[7px] bg-primary-deep px-3 text-white">
+            <span className="grid size-[26px] flex-none place-items-center rounded-[7px] bg-primary">
               <svg width="15" height="15" viewBox="0 0 48 48" fill="none">
                 <rect x="8" y="8" width="14" height="10" rx="2.5" fill="#fff" opacity="0.95" />
                 <rect x="26" y="30" width="14" height="10" rx="2.5" fill="#fff" opacity="0.95" />
@@ -99,10 +99,10 @@ export default function HeroPreview() {
                   <path d="m8.5 13.5 2.5 2.5 4.5-4.5" />
                 </svg>
               </span>
-              <span className="grid size-[25px] flex-none place-items-center rounded-full bg-mq-red-hover text-[9.5px] font-bold tracking-[0.02em]">
+              <span className="grid size-[25px] flex-none place-items-center rounded-full bg-primary-hover text-[9.5px] font-bold tracking-[0.02em]">
                 MD
               </span>
-              <span className="inline-flex h-[29px] items-center gap-1.5 rounded-lg bg-mq-red px-[13px] text-xs font-semibold">
+              <span className="inline-flex h-[29px] items-center gap-1.5 rounded-lg bg-primary px-[13px] text-xs font-semibold">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M8 5v14l11-7z" />
                 </svg>
@@ -182,7 +182,7 @@ export default function HeroPreview() {
             <span className={TOOL_ICON}>
               <span className="flex flex-col items-center leading-none">
                 <b className="text-[11px] font-semibold">A</b>
-                <span className="mt-px h-[3px] w-3 rounded-[1px] bg-mq-red" />
+                <span className="mt-px h-[3px] w-3 rounded-[1px] bg-primary" />
               </span>
             </span>
             <span className={SEP} />
@@ -256,18 +256,18 @@ export default function HeroPreview() {
             <div className="relative h-[372px] flex-1 bg-white bg-[radial-gradient(circle,#ddd9cd_1px,transparent_1px)] [background-size:16px_16px]">
               <svg className="absolute inset-0 h-full w-full" viewBox="0 0 852 372" fill="none">
                 {/* Users 1──○< Orders */}
-                <path d="M212 86 H640" stroke="#B4B2A9" strokeWidth="1.5" />
-                <path d="M226 78 v16 M232 78 v16" stroke="#B4B2A9" strokeWidth="1.5" />
-                <circle cx="606" cy="86" r="5" stroke="#B4B2A9" strokeWidth="1.5" fill="#fff" />
-                <path d="M618 86 L640 78 M618 86 L640 94" stroke="#B4B2A9" strokeWidth="1.5" />
+                <path d="M212 86 H640" stroke="#A5B0B3" strokeWidth="1.5" />
+                <path d="M226 78 v16 M232 78 v16" stroke="#A5B0B3" strokeWidth="1.5" />
+                <circle cx="606" cy="86" r="5" stroke="#A5B0B3" strokeWidth="1.5" fill="#fff" />
+                <path d="M618 86 L640 78 M618 86 L640 94" stroke="#A5B0B3" strokeWidth="1.5" />
                 {/* Orders 1──< Order_Items (vertical) */}
-                <path d="M726 138 V230" stroke="#B4B2A9" strokeWidth="1.5" />
-                <path d="M718 150 h16 M718 156 h16" stroke="#B4B2A9" strokeWidth="1.5" />
-                <path d="M726 208 L718 230 M726 208 L734 230" stroke="#B4B2A9" strokeWidth="1.5" />
+                <path d="M726 138 V230" stroke="#A5B0B3" strokeWidth="1.5" />
+                <path d="M718 150 h16 M718 156 h16" stroke="#A5B0B3" strokeWidth="1.5" />
+                <path d="M726 208 L718 230 M726 208 L734 230" stroke="#A5B0B3" strokeWidth="1.5" />
                 {/* Products 1──< Order_Items */}
-                <path d="M212 282 H640" stroke="#B4B2A9" strokeWidth="1.5" />
-                <path d="M226 274 v16 M232 274 v16" stroke="#B4B2A9" strokeWidth="1.5" />
-                <path d="M618 282 L640 274 M618 282 L640 290" stroke="#B4B2A9" strokeWidth="1.5" />
+                <path d="M212 282 H640" stroke="#A5B0B3" strokeWidth="1.5" />
+                <path d="M226 274 v16 M232 274 v16" stroke="#A5B0B3" strokeWidth="1.5" />
+                <path d="M618 282 L640 274 M618 282 L640 290" stroke="#A5B0B3" strokeWidth="1.5" />
               </svg>
               <span
                 className="absolute rounded-[3px] bg-white px-[7px] py-px text-[10px] font-semibold text-[#1f1d1a]"
@@ -282,13 +282,13 @@ export default function HeroPreview() {
                   className="absolute h-[104px] w-[172px] rounded-md border border-[#cfcabd] bg-white text-[11px] shadow-[0_2px_10px_rgba(44,44,42,0.09)]"
                   style={{ left: card.x, top: card.y }}
                 >
-                  <div className="rounded-t-[5px] bg-mq-maroon px-2.5 py-1.5 text-xs font-semibold text-white">
+                  <div className="rounded-t-[5px] bg-primary-deep px-2.5 py-1.5 text-xs font-semibold text-white">
                     {card.title}
                   </div>
                   {card.rows.map((row, i) => (
                     <div
                       key={`${row.text}-${i}`}
-                      className={`flex items-center gap-1.5 px-2.5 py-[4.5px] text-[#373a36] ${
+                      className={`flex items-center gap-1.5 px-2.5 py-[4.5px] text-[#253035] ${
                         i > 0 ? 'border-t border-[#efede6]' : ''
                       }`}
                     >
@@ -312,7 +312,7 @@ export default function HeroPreview() {
                 <path d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </span>
-            <span className="relative grid min-w-[96px] place-items-center border-r border-[#e0e0e0] bg-white font-medium text-[#2c2c2a] before:absolute before:top-0 before:right-0 before:left-0 before:h-0.5 before:bg-mq-red before:content-['']">
+            <span className="relative grid min-w-[96px] place-items-center border-r border-[#e0e0e0] bg-white font-medium text-[#2c2c2a] before:absolute before:top-0 before:right-0 before:left-0 before:h-0.5 before:bg-primary before:content-['']">
               Page 1
             </span>
             <span className="grid min-w-[96px] place-items-center border-r border-[#e0e0e0] font-medium text-[#2c2c2a]">
@@ -324,7 +324,7 @@ export default function HeroPreview() {
               </svg>
             </span>
             <span className="ml-auto flex items-center gap-[5px] border-l border-[#e0e0e0] bg-white px-3">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#a6192e" strokeWidth="2" strokeLinejoin="round">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#189589" strokeWidth="2" strokeLinejoin="round">
                 <path d="m12 2 9 5-9 5-9-5z" />
                 <path d="m3 12 9 5 9-5" />
                 <path d="m3 17 9 5 9-5" />

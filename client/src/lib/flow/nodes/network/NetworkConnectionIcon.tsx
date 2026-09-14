@@ -7,9 +7,9 @@ export default function NetworkConnectionIcon({ kind = 'ethernet' }: { kind?: Ne
   const path = isCurved ? 'M3 18 C11 18 20 6 29 6' : isOrthogonal ? 'M3 18 H15 V6 H29' : 'M3 12 H29';
   const stroke =
     kind === 'fiber' || kind === 'wireless' || kind === 'vpn-tunnel' || kind === 'link-aggregation'
-      ? '#a6192e'
+      ? '#189589'
       : kind === 'logical-dashed'
-        ? '#7a7770'
+        ? '#68777d'
         : '#2c2c2a';
   const strokeWidth =
     kind === 'link-aggregation'
@@ -36,7 +36,7 @@ export default function NetworkConnectionIcon({ kind = 'ethernet' }: { kind?: Ne
       {kind === 'link-aggregation' ? (
         <>
           <rect x="11" y="7.5" width="10" height="9" rx="2.5" fill="white" />
-          <text x="16" y="12.25" fill="#a6192e" fontFamily="Inter, ui-sans-serif, system-ui, sans-serif" fontSize="4.1" fontWeight={700} textAnchor="middle" dominantBaseline="middle">
+          <text x="16" y="12.25" fill="#189589" fontFamily="Inter, ui-sans-serif, system-ui, sans-serif" fontSize="4.1" fontWeight={700} textAnchor="middle" dominantBaseline="middle">
             LAG
           </text>
         </>

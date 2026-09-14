@@ -212,7 +212,7 @@ export default function DashboardPage() {
           <div className="flex items-center gap-4">
             <button
               onClick={() => setDialogOpen(true)}
-              className="flex min-h-11 items-center gap-2 rounded-xl bg-mq-red px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-mq-red-hover"
+              className="flex min-h-11 items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary-hover"
             >
               <Plus size={18} strokeWidth={2.25} />
               New Diagram
@@ -224,7 +224,7 @@ export default function DashboardPage() {
                 onClick={() => setMenuOpen((v) => !v)}
                 className="flex min-h-11 items-center gap-2.5 rounded-xl py-1 pr-2 pl-1 transition-colors hover:bg-surface-hover"
               >
-                <span className="flex size-9 items-center justify-center rounded-full bg-mq-maroon text-xs font-semibold text-white">
+                <span className="flex size-9 items-center justify-center rounded-full bg-primary-deep text-xs font-semibold text-white">
                   {initials}
                 </span>
                 <span className="hidden max-w-40 truncate text-sm font-medium text-ink sm:block">
@@ -277,8 +277,8 @@ export default function DashboardPage() {
           <p className="mt-9 text-center text-ink-muted">Loading...</p>
         ) : diagrams.length === 0 ? (
           <section className="mt-9 flex min-h-[390px] flex-col items-center justify-center overflow-hidden rounded-3xl border border-line-soft bg-white px-6 py-14 text-center shadow-[0_12px_40px_rgba(44,44,42,0.05)] sm:px-10">
-            <div className="flex size-20 items-center justify-center rounded-3xl bg-mq-pink ring-8 ring-mq-pink/45">
-              <FilePlus size={34} strokeWidth={1.8} className="text-mq-red" />
+            <div className="flex size-20 items-center justify-center rounded-3xl bg-primary-tint ring-8 ring-primary-tint/45">
+              <FilePlus size={34} strokeWidth={1.8} className="text-primary" />
             </div>
             <h2 className="mt-7 text-2xl font-semibold tracking-tight text-ink">No diagrams yet</h2>
             <p className="mt-2 max-w-md text-base leading-7 text-ink-muted">
@@ -286,7 +286,7 @@ export default function DashboardPage() {
             </p>
             <button
               onClick={() => setDialogOpen(true)}
-              className="mt-7 flex min-h-12 items-center gap-2.5 rounded-xl bg-mq-red px-5 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-mq-red-hover"
+              className="mt-7 flex min-h-12 items-center gap-2.5 rounded-xl bg-primary px-5 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-primary-hover"
             >
               <FileText size={18} />
               Create your first diagram
@@ -305,7 +305,7 @@ export default function DashboardPage() {
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search diagrams..."
-                  className="w-full rounded-lg border border-line bg-white py-2.5 pr-3 pl-10 text-sm text-ink outline-none placeholder:text-ink-muted focus:border-mq-red focus:ring-1 focus:ring-mq-red"
+                  className="w-full rounded-lg border border-line bg-white py-2.5 pr-3 pl-10 text-sm text-ink outline-none placeholder:text-ink-muted focus:border-primary focus:ring-1 focus:ring-primary"
                 />
               </div>
 
@@ -340,7 +340,7 @@ export default function DashboardPage() {
                           }}
                           className={`flex w-full items-center justify-between gap-4 px-3 py-2 text-left text-sm ${
                             sortBy === opt.value
-                              ? 'bg-mq-pink font-medium text-mq-red'
+                              ? 'bg-primary-tint font-medium text-primary'
                               : 'text-ink hover:bg-surface-hover'
                           }`}
                         >
@@ -366,16 +366,16 @@ export default function DashboardPage() {
                   return (
                     <div
                       key={d.id}
-                      className="group relative overflow-hidden rounded-2xl border border-line-soft bg-white shadow-sm transition hover:border-mq-red hover:shadow-md"
+                      className="group relative overflow-hidden rounded-2xl border border-line-soft bg-white shadow-sm transition hover:border-primary hover:shadow-md"
                     >
                       <Link href={`/editor/${d.id}`} className="block">
                         <div className="flex aspect-[4/3] flex-col items-center justify-center gap-2 bg-panel/50">
                           <Icon
                             size={40}
                             strokeWidth={1.4}
-                            className="text-mq-red/70 transition-transform group-hover:scale-105"
+                            className="text-primary/70 transition-transform group-hover:scale-105"
                           />
-                          <span className="text-xs font-semibold tracking-wide text-mq-red/70">
+                          <span className="text-xs font-semibold tracking-wide text-primary/70">
                             {meta.label}
                           </span>
                         </div>
@@ -435,7 +435,7 @@ export default function DashboardPage() {
                             </button>
                             <button
                               onClick={() => askDelete(d)}
-                              className="mt-1 flex w-full items-center gap-2.5 border-t border-line px-3 py-2 text-left text-sm text-mq-red hover:bg-mq-pink"
+                              className="mt-1 flex w-full items-center gap-2.5 border-t border-line px-3 py-2 text-left text-sm text-primary hover:bg-primary-tint"
                             >
                               <Trash2 size={16} /> Delete
                             </button>

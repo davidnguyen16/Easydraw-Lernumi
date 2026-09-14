@@ -74,14 +74,14 @@ function ResetPasswordForm() {
             <p className="text-sm text-ink-soft">
               Your password has been reset. Redirecting you to sign in…
             </p>
-            <Link href="/login" className="text-sm font-medium text-mq-red hover:underline">
+            <Link href="/login" className="text-sm font-medium text-primary hover:underline">
               Go to sign in
             </Link>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             {error && (
-              <p className="rounded-lg bg-mq-pink px-3 py-2 text-sm text-mq-red">{error}</p>
+              <p className="rounded-lg bg-danger-tint px-3 py-2 text-sm text-danger">{error}</p>
             )}
 
             <div className="flex flex-col gap-1.5">
@@ -100,7 +100,7 @@ function ResetPasswordForm() {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   placeholder="Enter your new password"
-                  className="w-full rounded-lg border border-line py-2.5 pr-10 pl-10 text-ink outline-none placeholder:text-ink-muted focus:border-mq-red focus:ring-1 focus:ring-mq-red"
+                  className="w-full rounded-lg border border-line py-2.5 pr-10 pl-10 text-ink outline-none placeholder:text-ink-muted focus:border-primary focus:ring-1 focus:ring-primary"
                 />
                 <button
                   type="button"
@@ -130,7 +130,7 @@ function ResetPasswordForm() {
                   onChange={(e) => setConfirm(e.target.value)}
                   required
                   placeholder="Re-enter your new password"
-                  className="w-full rounded-lg border border-line py-2.5 pr-3 pl-10 text-ink outline-none placeholder:text-ink-muted focus:border-mq-red focus:ring-1 focus:ring-mq-red"
+                  className="w-full rounded-lg border border-line py-2.5 pr-3 pl-10 text-ink outline-none placeholder:text-ink-muted focus:border-primary focus:ring-1 focus:ring-primary"
                 />
               </div>
             </div>
@@ -138,7 +138,7 @@ function ResetPasswordForm() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded-lg bg-mq-maroon py-2.5 font-semibold text-white hover:bg-mq-red disabled:opacity-60"
+              className="w-full rounded-lg bg-primary-deep py-2.5 font-semibold text-white hover:bg-primary disabled:opacity-60"
             >
               {loading ? 'Resetting…' : 'Reset password'}
             </button>
@@ -147,7 +147,7 @@ function ResetPasswordForm() {
       </div>
 
       <p className="mt-6 text-center text-sm text-ink-muted">
-        <Link href="/login" className="font-medium text-mq-red hover:underline">
+        <Link href="/login" className="font-medium text-primary hover:underline">
           ← Back to sign in
         </Link>
       </p>

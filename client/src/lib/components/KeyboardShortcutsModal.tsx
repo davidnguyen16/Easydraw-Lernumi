@@ -101,7 +101,7 @@ export default function KeyboardShortcutsModal({
         <div className="grid grid-cols-2 gap-x-8 gap-y-5 overflow-y-auto p-5">
           {GROUPS.map((g) => (
             <div key={g.title}>
-              <h3 className="mb-2 text-[0.7rem] font-bold tracking-[0.08em] text-mq-maroon">
+              <h3 className="mb-2 text-[0.7rem] font-bold tracking-[0.08em] text-primary-deep">
                 {g.title.toUpperCase()}
               </h3>
               <ul className="m-0 flex list-none flex-col gap-1.5 p-0">

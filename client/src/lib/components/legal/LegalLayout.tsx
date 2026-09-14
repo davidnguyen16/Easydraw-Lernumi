@@ -23,7 +23,7 @@ export default function LegalLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen flex-col bg-[#faf8f3]">
+    <div className="flex min-h-screen flex-col bg-page">
       <header className="sticky top-0 z-40 border-b border-line-soft bg-white/90 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
           <Link href="/" aria-label="EasyDraw home">
@@ -40,7 +40,7 @@ export default function LegalLayout({
             </Link>
             <Link
               href="/dashboard"
-              className="flex h-9 items-center rounded-lg bg-mq-red px-3.5 text-sm font-medium text-white transition-colors hover:bg-mq-red-hover"
+              className="flex h-9 items-center rounded-lg bg-primary px-3.5 text-sm font-medium text-white transition-colors hover:bg-primary-hover"
             >
               Open EasyDraw
             </Link>
@@ -51,7 +51,7 @@ export default function LegalLayout({
       <main className="flex-1">
         <section className="border-b border-line-soft bg-white">
           <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-            <div className="mb-5 inline-flex items-center rounded-full border border-mq-red/15 bg-mq-pink px-3 py-1 text-xs font-semibold tracking-wider text-mq-red uppercase">
+            <div className="mb-5 inline-flex items-center rounded-full border border-primary/15 bg-primary-tint px-3 py-1 text-xs font-semibold tracking-wider text-primary uppercase">
               EasyDraw legal
             </div>
             <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
@@ -77,7 +77,7 @@ export default function LegalLayout({
                   href={`#${section.id}`}
                   className="flex gap-3 rounded-lg px-2 py-2 text-sm text-ink-muted transition-colors hover:bg-surface-hover hover:text-ink"
                 >
-                  <span className="font-mono text-xs text-mq-red">
+                  <span className="font-mono text-xs text-primary">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <span>{section.title}</span>
@@ -97,7 +97,7 @@ export default function LegalLayout({
                   href={`#${section.id}`}
                   className="group flex gap-3 rounded-lg px-3 py-2 text-sm text-ink-muted transition-colors hover:bg-white hover:text-ink"
                 >
-                  <span className="font-mono text-xs text-mq-red/70 group-hover:text-mq-red">
+                  <span className="font-mono text-xs text-primary/70 group-hover:text-primary">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <span>{section.title}</span>
@@ -119,7 +119,7 @@ export default function LegalLayout({
                 </div>
                 <a
                   href="mailto:support@easydraw.net"
-                  className="inline-flex h-10 flex-shrink-0 items-center justify-center gap-2 rounded-lg border border-line bg-white px-4 text-sm font-medium text-ink transition-colors hover:border-mq-red/30 hover:text-mq-red"
+                  className="inline-flex h-10 flex-shrink-0 items-center justify-center gap-2 rounded-lg border border-line bg-white px-4 text-sm font-medium text-ink transition-colors hover:border-primary/30 hover:text-primary"
                 >
                   <Mail size={16} aria-hidden="true" />
                   support@easydraw.net

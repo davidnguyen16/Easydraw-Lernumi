@@ -45,7 +45,7 @@ export default function ForgotPasswordPage() {
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             {error && (
-              <p className="rounded-lg bg-mq-pink px-3 py-2 text-sm text-mq-red">{error}</p>
+              <p className="rounded-lg bg-danger-tint px-3 py-2 text-sm text-danger">{error}</p>
             )}
 
             <div className="flex flex-col gap-1.5">
@@ -64,7 +64,7 @@ export default function ForgotPasswordPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   placeholder="you@example.com"
-                  className="w-full rounded-lg border border-line py-2.5 pr-3 pl-10 text-ink outline-none placeholder:text-ink-muted focus:border-mq-red focus:ring-1 focus:ring-mq-red"
+                  className="w-full rounded-lg border border-line py-2.5 pr-3 pl-10 text-ink outline-none placeholder:text-ink-muted focus:border-primary focus:ring-1 focus:ring-primary"
                 />
               </div>
             </div>
@@ -72,7 +72,7 @@ export default function ForgotPasswordPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded-lg bg-mq-maroon py-2.5 font-semibold text-white hover:bg-mq-red disabled:opacity-60"
+              className="w-full rounded-lg bg-primary-deep py-2.5 font-semibold text-white hover:bg-primary disabled:opacity-60"
             >
               {loading ? 'Sending…' : 'Send reset link'}
             </button>
@@ -81,7 +81,7 @@ export default function ForgotPasswordPage() {
       </div>
 
       <p className="mt-6 text-center text-sm text-ink-muted">
-        <Link href="/login" className="font-medium text-mq-red hover:underline">
+        <Link href="/login" className="font-medium text-primary hover:underline">
           ← Back to sign in
         </Link>
       </p>

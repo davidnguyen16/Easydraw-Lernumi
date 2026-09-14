@@ -23,7 +23,7 @@ interface Props {
   onFontPreviewEnd: () => void;
 }
 
-const TEXT_COLORS = ['#2C2C2A', '#FFFFFF', '#A6192E', '#6B4DBA', '#0E7E63', '#9C6B1A'];
+const TEXT_COLORS = ['#2C2C2A', '#FFFFFF', '#189589', '#126862', '#763ADF', '#0D91D3'];
 const TEXT_ALIGNMENTS: TextAlign[] = ['left', 'center', 'right'];
 
 const FONT_SIZE_MIN = 8;
@@ -148,7 +148,7 @@ export default function TextTab({ style, onStyleChange, onFontPreview, onFontPre
               key={color}
               type="button"
               className={`${SWATCH} ${color === '#FFFFFF' ? 'border-line' : ''} ${
-                textColor.toUpperCase() === color ? 'shadow-[0_0_0_2px_#76232f]' : ''
+                textColor.toUpperCase() === color ? 'shadow-[0_0_0_2px_#126862]' : ''
               }`}
               style={{ backgroundColor: color }}
               aria-label={`Text color ${color}`}
@@ -169,8 +169,8 @@ export default function TextTab({ style, onStyleChange, onFontPreview, onFontPre
             type="button"
             className="w-full cursor-pointer appearance-none overflow-hidden rounded-md border
               border-line bg-white py-[9px] pr-[30px] pl-2.5 text-left text-[0.9rem] leading-[1.2]
-              text-ellipsis whitespace-nowrap text-ink-soft hover:border-[#c4c1b8]
-              focus:border-mq-red focus:outline-none"
+              text-ellipsis whitespace-nowrap text-ink-soft hover:border-[#b6c0c2]
+              focus:border-primary focus:outline-none"
             ref={fontTriggerRef}
             style={{ fontFamily }}
             aria-haspopup="listbox"
@@ -207,11 +207,11 @@ export default function TextTab({ style, onStyleChange, onFontPreview, onFontPre
                   aria-selected={family === fontFamily}
                   className="flex cursor-pointer items-center gap-1.5 rounded-md border-none bg-transparent
                     px-2.5 py-[7px] text-left text-[0.9rem] whitespace-nowrap text-ink-soft
-                    hover:bg-[#f3f1ea]"
+                    hover:bg-[#ebf2f2]"
                   onClick={() => pickFont(family)}
                   onMouseEnter={() => onFontPreview(family)}
                 >
-                  <span className="inline-flex w-3.5 flex-shrink-0 text-mq-red">
+                  <span className="inline-flex w-3.5 flex-shrink-0 text-primary">
                     {family === fontFamily ? (
                       <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <polyline points="20 6 9 17 4 12" />
@@ -256,7 +256,7 @@ export default function TextTab({ style, onStyleChange, onFontPreview, onFontPre
         <div className="grid grid-cols-3 gap-1.5">
           <button
             type="button"
-            className={`${SQUARE_BTN} ${bold ? 'border-mq-red bg-mq-pink text-mq-maroon' : ''}`}
+            className={`${SQUARE_BTN} ${bold ? 'border-primary bg-primary-tint text-primary-deep' : ''}`}
             aria-label="Bold"
             aria-pressed={bold}
             onClick={() => onStyleChange({ bold: !bold })}
@@ -265,7 +265,7 @@ export default function TextTab({ style, onStyleChange, onFontPreview, onFontPre
           </button>
           <button
             type="button"
-            className={`${SQUARE_BTN} ${italic ? 'border-mq-red bg-mq-pink text-mq-maroon' : ''}`}
+            className={`${SQUARE_BTN} ${italic ? 'border-primary bg-primary-tint text-primary-deep' : ''}`}
             aria-label="Italic"
             aria-pressed={italic}
             onClick={() => onStyleChange({ italic: !italic })}
@@ -274,7 +274,7 @@ export default function TextTab({ style, onStyleChange, onFontPreview, onFontPre
           </button>
           <button
             type="button"
-            className={`${SQUARE_BTN} ${underline ? 'border-mq-red bg-mq-pink text-mq-maroon' : ''}`}
+            className={`${SQUARE_BTN} ${underline ? 'border-primary bg-primary-tint text-primary-deep' : ''}`}
             aria-label="Underline"
             aria-pressed={underline}
             onClick={() => onStyleChange({ underline: !underline })}
@@ -291,7 +291,7 @@ export default function TextTab({ style, onStyleChange, onFontPreview, onFontPre
             <button
               key={align}
               type="button"
-              className={`${SQUARE_BTN} ${textAlign === align ? 'border-mq-red bg-mq-pink text-mq-maroon' : ''}`}
+              className={`${SQUARE_BTN} ${textAlign === align ? 'border-primary bg-primary-tint text-primary-deep' : ''}`}
               aria-label={`Align ${align}`}
               aria-pressed={textAlign === align}
               onClick={() => onStyleChange({ textAlign: align })}

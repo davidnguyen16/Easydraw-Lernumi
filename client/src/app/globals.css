@@ -1,29 +1,58 @@
 @import 'tailwindcss';
 
 /* ---------------------------------------------------------------------------
-   Design tokens (Tailwind v4 CSS-first config), ported 1:1 from the SvelteKit
-   client. These become utilities, e.g. `bg-mq-maroon`, `text-mq-red`,
-   `border-line`, `text-ink-muted`, so the MQ palette lives in one place.
+   Design tokens (Tailwind v4 CSS-first config). These become utilities, e.g.
+   `bg-primary`, `text-primary-deep`, `border-line`, `text-ink-muted`, so the
+   palette lives in one place.
+
+   Palette is shared with the Lernumi / ailearn app (its `app/globals.css`
+   declares the same colours as shadcn oklch tokens). Values here are the hex
+   equivalents so both apps read as one ecosystem:
+
+     primary        = ailearn --primary            (brand teal)
+     primary-deep   = ailearn --accent-foreground  (dark teal, text/hover)
+     primary-hover  = ailearn --ring               (lighter teal)
+     primary-tint   = ailearn --accent             (pale teal wash)
+     ink            = ailearn --foreground
+     ink-muted      = ailearn --muted-foreground
+     panel          = ailearn --secondary / --muted
+     line           = ailearn --input
+     line-soft      = ailearn --border
+     page           = ailearn --background
+     danger         = ailearn --destructive
+     brand-*        = ailearn --brand-teal/violet/amber/sky
 --------------------------------------------------------------------------- */
 @theme {
-	/* Brand reds */
-	--color-mq-maroon: #76232f;
-	--color-mq-red: #a6192e;
-	--color-mq-red-hover: #c01933;
-	--color-mq-pink: #fbeef0;
+	/* Brand teal (primary) */
+	--color-primary: #189589;
+	--color-primary-deep: #126862;
+	--color-primary-hover: #1fad9f;
+	--color-primary-tint: #e7f8f6;
 
-	/* Ink / text */
-	--color-ink: #2c2c2a;
-	--color-ink-soft: #373a36;
-	--color-ink-muted: #8a8b83;
-	--color-toolbar-text: #4a4c48;
+	/* Destructive — errors, delete actions. Was the brand red before the
+	   ecosystem palette; kept separate now that the brand is teal. */
+	--color-danger: #c4314e;
+	--color-danger-tint: #fdf1f3;
 
-	/* Surfaces + lines */
-	--color-panel: #f5f3ef;
-	--color-surface-hover: #efece6;
-	--color-line: #d6d2c4;
-	--color-line-soft: #e3e0d6;
-	--color-line-dropdown: #ebe5d8;
+	/* Four ecosystem brand hues (same names as ailearn: bg-brand-teal …) */
+	--color-brand-teal: #189589;
+	--color-brand-violet: #763adf;
+	--color-brand-amber: #e9820c;
+	--color-brand-sky: #0d91d3;
+
+	/* Ink / text — cool slate */
+	--color-ink: #121c21;
+	--color-ink-soft: #253035;
+	--color-ink-muted: #5e7178;
+	--color-toolbar-text: #425056;
+
+	/* Surfaces + lines — cool grey-blue */
+	--color-page: #f9fbfb;
+	--color-panel: #ecf3f3;
+	--color-surface-hover: #e4ebec;
+	--color-line: #cfdbde;
+	--color-line-soft: #dee6e8;
+	--color-line-dropdown: #e5edee;
 
 	/* Default UI font */
 	--font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -171,7 +200,7 @@
 	top: calc(100% + 7px);
 	left: 50%;
 	transform: translateX(-50%);
-	background: #373a36;
+	background: #253035;
 	color: #fff;
 	font-family: system-ui, -apple-system, sans-serif;
 	font-size: 0.72rem;
@@ -223,24 +252,24 @@
 	margin-top: 0.5rem;
 }
 .legal-copy li::marker {
-	color: #a6192e;
+	color: #189589;
 }
 .legal-copy a {
-	color: #a6192e;
+	color: #189589;
 	text-decoration: underline;
 	text-underline-offset: 3px;
 }
 .legal-copy a:hover {
-	color: #76232f;
+	color: #126862;
 }
 .legal-copy strong {
-	color: #2c2c2a;
+	color: #121c21;
 	font-weight: 600;
 }
 .legal-copy h3 {
 	margin-top: 1.25rem;
 	margin-bottom: 0.4rem;
-	color: #2c2c2a;
+	color: #121c21;
 	font-size: 0.95rem;
 	font-weight: 600;
 }

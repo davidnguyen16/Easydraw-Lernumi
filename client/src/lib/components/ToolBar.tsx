@@ -16,12 +16,12 @@ const clamp = (n: number, min: number, max: number) => Math.min(max, Math.max(mi
 const ICON_BTN =
   'tb-tip relative inline-flex h-8 w-8 cursor-pointer items-center justify-center rounded-md border ' +
   'border-transparent bg-transparent p-0 text-toolbar-text transition-colors duration-[120ms] ' +
-  '[&_svg]:size-[18px] enabled:hover:bg-surface-hover enabled:hover:text-[#1f201d] ' +
-  'disabled:cursor-not-allowed disabled:opacity-[0.32] [&.toggled]:bg-mq-pink [&.toggled]:text-mq-red';
+  '[&_svg]:size-[18px] enabled:hover:bg-surface-hover enabled:hover:text-[#0f171c] ' +
+  'disabled:cursor-not-allowed disabled:opacity-[0.32] [&.toggled]:bg-primary-tint [&.toggled]:text-primary';
 const FMT_BTN =
   'tb-tip-data relative inline-flex h-8 w-8 cursor-pointer items-center justify-center rounded-md border ' +
   'border-transparent bg-transparent p-0 text-toolbar-text transition-colors duration-[120ms] ' +
-  'hover:bg-surface-hover hover:text-[#1f201d] [&.toggled]:bg-mq-pink [&.toggled]:text-mq-red';
+  'hover:bg-surface-hover hover:text-[#0f171c] [&.toggled]:bg-primary-tint [&.toggled]:text-primary';
 
 function icon(name: string) {
   return <UiIcon name={name} strokeWidth={1.8} />;
@@ -166,10 +166,10 @@ export default function ToolBar() {
 
         <div className="tb-menu relative">
           <div
-            className={`group inline-flex h-[30px] min-w-[64px] items-center rounded-md border border-line-soft bg-transparent pr-0.5 pl-2 transition-colors duration-[120ms] hover:bg-surface-hover focus-within:border-mq-red focus-within:bg-white [&.active]:border-mq-red [&.active]:bg-white ${openDropdown === 'zoom' ? 'active' : ''}`}
+            className={`group inline-flex h-[30px] min-w-[64px] items-center rounded-md border border-line-soft bg-transparent pr-0.5 pl-2 transition-colors duration-[120ms] hover:bg-surface-hover focus-within:border-primary focus-within:bg-white [&.active]:border-primary [&.active]:bg-white ${openDropdown === 'zoom' ? 'active' : ''}`}
           >
             <input
-              className="w-0 min-w-[26px] flex-1 border-none bg-transparent p-0 text-right text-[0.82rem] tabular-nums text-toolbar-text outline-none [appearance:textfield] group-focus-within:text-[#1f201d] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+              className="w-0 min-w-[26px] flex-1 border-none bg-transparent p-0 text-right text-[0.82rem] tabular-nums text-toolbar-text outline-none [appearance:textfield] group-focus-within:text-[#0f171c] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
               type="text"
               inputMode="numeric"
               aria-label="Zoom level"
@@ -200,38 +200,38 @@ export default function ToolBar() {
                   key={preset}
                   type="button"
                   role="menuitem"
-                  className={`flex w-full cursor-pointer items-center gap-1.5 rounded-md border-none bg-transparent px-3 py-[7px] text-left text-[0.86rem] text-ink-soft transition-colors duration-100 hover:bg-mq-pink hover:text-mq-maroon [&.checked]:bg-mq-pink [&.checked]:text-mq-maroon ${preset === editor.state.zoomPercent ? 'checked' : ''}`}
+                  className={`flex w-full cursor-pointer items-center gap-1.5 rounded-md border-none bg-transparent px-3 py-[7px] text-left text-[0.86rem] text-ink-soft transition-colors duration-100 hover:bg-primary-tint hover:text-primary-deep [&.checked]:bg-primary-tint [&.checked]:text-primary-deep ${preset === editor.state.zoomPercent ? 'checked' : ''}`}
                   onClick={() => pickZoom(preset)}
                 >
-                  <span className="inline-flex h-4 w-4 flex-shrink-0 items-center justify-center text-mq-maroon [&_svg]:size-3.5">
+                  <span className="inline-flex h-4 w-4 flex-shrink-0 items-center justify-center text-primary-deep [&_svg]:size-3.5">
                     {preset === editor.state.zoomPercent && icon('check')}
                   </span>
                   <span className="flex-1 text-left tabular-nums">{preset}%</span>
                 </button>
               ))}
-              <div className="mx-1 my-1 h-px bg-[#e8e5de]" />
+              <div className="mx-1 my-1 h-px bg-[#dee6e8]" />
               <button
                 type="button"
                 role="menuitem"
-                className="flex w-full cursor-pointer items-center gap-1.5 rounded-md border-none bg-transparent px-3 py-[7px] text-left text-[0.86rem] text-ink-soft transition-colors duration-100 hover:bg-mq-pink hover:text-mq-maroon"
+                className="flex w-full cursor-pointer items-center gap-1.5 rounded-md border-none bg-transparent px-3 py-[7px] text-left text-[0.86rem] text-ink-soft transition-colors duration-100 hover:bg-primary-tint hover:text-primary-deep"
                 onClick={() => {
                   editor.fitView();
                   closeDropdowns();
                 }}
               >
-                <span className="inline-flex h-4 w-4 flex-shrink-0 items-center justify-center text-[#5a5c58] [&_svg]:size-[15px]">{icon('fit')}</span>
+                <span className="inline-flex h-4 w-4 flex-shrink-0 items-center justify-center text-[#4d5b61] [&_svg]:size-[15px]">{icon('fit')}</span>
                 <span className="flex-1 text-left">Fit to screen</span>
               </button>
               <button
                 type="button"
                 role="menuitem"
-                className="flex w-full cursor-pointer items-center gap-1.5 rounded-md border-none bg-transparent px-3 py-[7px] text-left text-[0.86rem] text-ink-soft transition-colors duration-100 hover:bg-mq-pink hover:text-mq-maroon"
+                className="flex w-full cursor-pointer items-center gap-1.5 rounded-md border-none bg-transparent px-3 py-[7px] text-left text-[0.86rem] text-ink-soft transition-colors duration-100 hover:bg-primary-tint hover:text-primary-deep"
                 onClick={() => {
                   editor.fitSelection();
                   closeDropdowns();
                 }}
               >
-                <span className="inline-flex h-4 w-4 flex-shrink-0 items-center justify-center text-[#5a5c58] [&_svg]:size-[15px]">{icon('fit')}</span>
+                <span className="inline-flex h-4 w-4 flex-shrink-0 items-center justify-center text-[#4d5b61] [&_svg]:size-[15px]">{icon('fit')}</span>
                 <span className="flex-1 text-left">Fit selection</span>
               </button>
             </div>
@@ -253,7 +253,7 @@ export default function ToolBar() {
         <div className="tb-menu relative">
           <button
             type="button"
-            className={`inline-flex h-[30px] min-w-[104px] cursor-pointer items-center gap-1.5 rounded-md border border-line-soft bg-transparent px-2 text-[0.82rem] text-toolbar-text transition-colors duration-[120ms] hover:bg-surface-hover hover:text-[#1f201d] [&.active]:border-mq-red [&.active]:bg-white [&.active]:text-mq-maroon ${openDropdown === 'font' ? 'active' : ''}`}
+            className={`inline-flex h-[30px] min-w-[104px] cursor-pointer items-center gap-1.5 rounded-md border border-line-soft bg-transparent px-2 text-[0.82rem] text-toolbar-text transition-colors duration-[120ms] hover:bg-surface-hover hover:text-[#0f171c] [&.active]:border-primary [&.active]:bg-white [&.active]:text-primary-deep ${openDropdown === 'font' ? 'active' : ''}`}
             aria-haspopup="menu"
             aria-expanded={openDropdown === 'font'}
             onClick={() => toggle('font')}
@@ -275,11 +275,11 @@ export default function ToolBar() {
                   key={family}
                   type="button"
                   role="menuitem"
-                  className={`flex w-full cursor-pointer items-center gap-1.5 rounded-md border-none bg-transparent px-3 py-[7px] text-left text-[0.86rem] text-ink-soft transition-colors duration-100 hover:bg-mq-pink hover:text-mq-maroon [&.checked]:bg-mq-pink [&.checked]:text-mq-maroon ${family === style.fontFamily ? 'checked' : ''}`}
+                  className={`flex w-full cursor-pointer items-center gap-1.5 rounded-md border-none bg-transparent px-3 py-[7px] text-left text-[0.86rem] text-ink-soft transition-colors duration-100 hover:bg-primary-tint hover:text-primary-deep [&.checked]:bg-primary-tint [&.checked]:text-primary-deep ${family === style.fontFamily ? 'checked' : ''}`}
                   onClick={() => pickFont(family)}
                   onMouseEnter={() => editor.previewStyle({ fontFamily: family })}
                 >
-                  <span className="inline-flex h-4 w-4 flex-shrink-0 items-center justify-center text-mq-maroon [&_svg]:size-3.5">
+                  <span className="inline-flex h-4 w-4 flex-shrink-0 items-center justify-center text-primary-deep [&_svg]:size-3.5">
                     {family === style.fontFamily && icon('check')}
                   </span>
                   <span className="flex-1 text-left" style={{ fontFamily: family }}>{family}</span>
@@ -291,10 +291,10 @@ export default function ToolBar() {
 
         <div className="tb-menu relative">
           <div
-            className={`group inline-flex h-[30px] min-w-[56px] items-center rounded-md border border-line-soft bg-transparent pr-0.5 pl-2 transition-colors duration-[120ms] hover:bg-surface-hover focus-within:border-mq-red focus-within:bg-white [&.active]:border-mq-red [&.active]:bg-white ${openDropdown === 'size' ? 'active' : ''}`}
+            className={`group inline-flex h-[30px] min-w-[56px] items-center rounded-md border border-line-soft bg-transparent pr-0.5 pl-2 transition-colors duration-[120ms] hover:bg-surface-hover focus-within:border-primary focus-within:bg-white [&.active]:border-primary [&.active]:bg-white ${openDropdown === 'size' ? 'active' : ''}`}
           >
             <input
-              className="w-0 min-w-[26px] flex-1 border-none bg-transparent p-0 text-right text-[0.82rem] tabular-nums text-toolbar-text outline-none [appearance:textfield] group-focus-within:text-[#1f201d] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+              className="w-0 min-w-[26px] flex-1 border-none bg-transparent p-0 text-right text-[0.82rem] tabular-nums text-toolbar-text outline-none [appearance:textfield] group-focus-within:text-[#0f171c] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
               type="text"
               inputMode="numeric"
               aria-label="Font size"
@@ -328,11 +328,11 @@ export default function ToolBar() {
                   key={size}
                   type="button"
                   role="menuitem"
-                  className={`flex w-full cursor-pointer items-center gap-1.5 rounded-md border-none bg-transparent px-3 py-[7px] text-left text-[0.86rem] text-ink-soft transition-colors duration-100 hover:bg-mq-pink hover:text-mq-maroon [&.checked]:bg-mq-pink [&.checked]:text-mq-maroon ${size === style.fontSize ? 'checked' : ''}`}
+                  className={`flex w-full cursor-pointer items-center gap-1.5 rounded-md border-none bg-transparent px-3 py-[7px] text-left text-[0.86rem] text-ink-soft transition-colors duration-100 hover:bg-primary-tint hover:text-primary-deep [&.checked]:bg-primary-tint [&.checked]:text-primary-deep ${size === style.fontSize ? 'checked' : ''}`}
                   onClick={() => pickSize(size)}
                   onMouseEnter={() => editor.previewStyle({ fontSize: size })}
                 >
-                  <span className="inline-flex h-4 w-4 flex-shrink-0 items-center justify-center text-mq-maroon [&_svg]:size-3.5">
+                  <span className="inline-flex h-4 w-4 flex-shrink-0 items-center justify-center text-primary-deep [&_svg]:size-3.5">
                     {size === style.fontSize && icon('check')}
                   </span>
                   <span className="flex-1 text-left tabular-nums">{size} pt</span>

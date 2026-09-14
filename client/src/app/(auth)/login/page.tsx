@@ -56,7 +56,7 @@ export default function LoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 placeholder="you@example.com"
-                className="w-full rounded-lg border border-line py-2.5 pr-3 pl-10 text-ink outline-none placeholder:text-ink-muted focus:border-mq-red focus:ring-1 focus:ring-mq-red"
+                className="w-full rounded-lg border border-line py-2.5 pr-3 pl-10 text-ink outline-none placeholder:text-ink-muted focus:border-primary focus:ring-1 focus:ring-primary"
               />
             </div>
           </div>
@@ -64,7 +64,7 @@ export default function LoginPage() {
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center justify-between">
               <label htmlFor="password" className="text-sm font-medium text-ink">Password</label>
-              <Link href="/forgot-password" className="text-sm text-mq-red hover:underline">Forgot password?</Link>
+              <Link href="/forgot-password" className="text-sm text-primary hover:underline">Forgot password?</Link>
             </div>
             <div className="relative">
               <Lock size={18} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-ink-muted" />
@@ -75,7 +75,7 @@ export default function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 placeholder="Enter your password"
-                className="w-full rounded-lg border border-line py-2.5 pr-10 pl-10 text-ink outline-none placeholder:text-ink-muted focus:border-mq-red focus:ring-1 focus:ring-mq-red"
+                className="w-full rounded-lg border border-line py-2.5 pr-10 pl-10 text-ink outline-none placeholder:text-ink-muted focus:border-primary focus:ring-1 focus:ring-primary"
               />
               <button
                 type="button"
@@ -90,13 +90,13 @@ export default function LoginPage() {
 
           <button
             type="submit"
-            className="mt-1 w-full rounded-lg bg-mq-maroon py-2.5 font-semibold text-white hover:bg-mq-red"
+            className="mt-1 w-full rounded-lg bg-primary-deep py-2.5 font-semibold text-white hover:bg-primary"
           >
             Sign in
           </button>
         </form>
 
-        {error && <p className="rounded-lg bg-mq-pink px-3 py-2 text-mq-red">{error}</p>}
+        {error && <p className="rounded-lg bg-danger-tint px-3 py-2 text-danger">{error}</p>}
 
         <div className="my-5 flex items-center gap-3">
           <span className="h-px flex-1 bg-line" />
@@ -120,7 +120,7 @@ export default function LoginPage() {
 
       <p className="mt-6 text-center text-sm text-ink-muted">
         New to EasyDraw?{' '}
-        <Link href="/register" className="font-medium text-mq-red hover:underline">Create an account</Link>
+        <Link href="/register" className="font-medium text-primary hover:underline">Create an account</Link>
       </p>
     </>
   );

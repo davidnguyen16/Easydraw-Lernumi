@@ -46,7 +46,7 @@ const NETWORK_CONNECTION_DEFINITIONS = [
 		routing: 'straight',
 		lineStyle: 'solid',
 		strokeWidth: 2.4,
-		strokeColor: '#a6192e',
+		strokeColor: '#189589',
 		footprint: 'straight'
 	},
 	{
@@ -68,7 +68,7 @@ const NETWORK_CONNECTION_DEFINITIONS = [
 		routing: 'curved',
 		lineStyle: 'dotted',
 		strokeWidth: 2,
-		strokeColor: '#a6192e',
+		strokeColor: '#189589',
 		footprint: 'curved'
 	},
 	{
@@ -79,7 +79,7 @@ const NETWORK_CONNECTION_DEFINITIONS = [
 		routing: 'orthogonal',
 		lineStyle: 'dashed',
 		strokeWidth: 3,
-		strokeColor: '#a6192e',
+		strokeColor: '#189589',
 		footprint: 'orthogonal'
 	},
 	{
@@ -101,7 +101,7 @@ const NETWORK_CONNECTION_DEFINITIONS = [
 		routing: 'straight',
 		lineStyle: 'solid',
 		strokeWidth: 4,
-		strokeColor: '#a6192e',
+		strokeColor: '#189589',
 		footprint: 'straight',
 		defaultLabel: 'LAG'
 	},
@@ -113,7 +113,7 @@ const NETWORK_CONNECTION_DEFINITIONS = [
 		routing: 'orthogonal',
 		lineStyle: 'dashed',
 		strokeWidth: 1.4,
-		strokeColor: '#7a7770',
+		strokeColor: '#68777d',
 		footprint: 'orthogonal'
 	}
 ] as const satisfies readonly NetworkConnectionDefinition[];

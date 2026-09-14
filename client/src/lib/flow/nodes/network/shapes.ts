@@ -20,7 +20,7 @@ export const networkShapes: readonly NodeShape[] = NETWORK_DEFINITIONS.map((defi
 	defaultZIndex: -2000,
 	defaultData: () => ({
 		label: definition.label,
-		accentColor: '#a6192e',
+		accentColor: '#189589',
 		textAlign: 'left'
 	})
 }));

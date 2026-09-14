@@ -69,7 +69,7 @@ export default function ContextMenu({ id, top, left, right, bottom, onClick }: P
       {locked ? (
         <button
           type="button"
-          className={`${ITEM_CLASS} text-ink-soft hover:bg-[#edebe5] hover:text-ink`}
+          className={`${ITEM_CLASS} text-ink-soft hover:bg-[#e4ebec] hover:text-ink`}
           onClick={() => editor.toggleNodeLock(id)}
         >
           <LockOpen size={16} strokeWidth={1.75} />
@@ -85,8 +85,8 @@ export default function ContextMenu({ id, top, left, right, bottom, onClick }: P
                 type="button"
                 className={`${ITEM_CLASS} ${
                   item.danger
-                    ? 'text-[#e5484d] hover:bg-[#fdecec]'
-                    : 'text-ink-soft hover:bg-[#edebe5] hover:text-ink'
+                    ? 'text-danger hover:bg-danger-tint'
+                    : 'text-ink-soft hover:bg-[#e4ebec] hover:text-ink'
                 }`}
                 onClick={item.run}
               >

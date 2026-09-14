@@ -17,7 +17,7 @@ export default function Logo({
   return (
     <div className={`flex items-center gap-2 ${className}`}>
       <svg width={icon} height={icon} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect x="4" y="4" width="40" height="40" rx="8" className="fill-mq-red" />
+        <rect x="4" y="4" width="40" height="40" rx="8" className="fill-primary" />
         <rect x="12" y="12" width="12" height="8" rx="2" className="fill-white/90" />
         <rect x="28" y="28" width="12" height="8" rx="2" className="fill-white/90" />
         <path d="M24 16 L28 16 L28 32" className="stroke-white/70" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
@@ -26,7 +26,7 @@ export default function Logo({
       </svg>
       {showText && (
         <span className={`${text} font-semibold tracking-tight`}>
-          <span className="text-mq-red">Easy</span>
+          <span className="text-primary">Easy</span>
           <span className="text-ink">Draw</span>
         </span>
       )}
